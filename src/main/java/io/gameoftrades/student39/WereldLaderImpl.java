@@ -27,6 +27,9 @@ public class WereldLaderImpl implements WereldLader {
     private List<Handel> handel;
 
 
+    //Amount of cities / markets
+    private final int amountMarkets = 0;
+
     @Override
     public Wereld laad(String resource) {
         //
@@ -38,7 +41,7 @@ public class WereldLaderImpl implements WereldLader {
         //
 
         int i = 0;
-        int amountCities = 0;
+
 
         //initialize scanner and load the file
         Scanner scanner = new Scanner(this.getClass().getResourceAsStream(resource));
@@ -54,11 +57,11 @@ public class WereldLaderImpl implements WereldLader {
             if (i == 0) {
                 //Split the data from the scanner and put it in the
                 //Int array coords
-                String[] p = value.split(",");
+                String[] splitCoordinates = value.split(",");
 
                 //Convert the data coords to int
-                for (int j = 0; j < p.length; j++) {
-                    coordinate[j] = Integer.parseInt(p[j]);
+                for (int j = 0; j < splitCoordinates.length; j++) {
+                    coordinate[j] = Integer.parseInt(splitCoordinates[j]);
                 }
 
                 //Create the map, width - height
@@ -70,18 +73,34 @@ public class WereldLaderImpl implements WereldLader {
             //Numbers of how many cities there are
             if (isInteger(value) && i > 0) {
 
-                amountCities = Integer.parseInt(value);
-                System.out.println("Amount of cities="+amountCities);
+
+                //Create first a final that only can assign once
+                final int amountCities = Integer.parseInt(value);
 
                 //If the amount of cities is heiger then 0
                 if (amountCities > 0) {
 
+                    //For the amount of cities that they are loop through
+                    for(int j = 0; j < amountCities; j++) {
+
+                        //Split the cities
+                        String city = scanner.nextLine();
+                        String[] splitCity = city.split(",");
+
+                        //Create the coordinate
+                        Coordinaat cityCoordinate = Coordinaat.op(Integer.parseInt(splitCity[0]),Integer.parseInt(splitCity[1]));
+
+                        //Create the city
+                        Stad stad = new Stad(cityCoordinate, splitCity[2]);
+                        this.addCity(stad);
+
+                    }
+
+
                     System.out.println("(" + value + ")");
                     Coordinaat coordinaat = Coordinaat.op(coordinate[0], coordinate[1]);
-                    Stad stad = new Stad(coordinaat, "temp");
 
                     //Add the class to the list steden
-                    steden.add(stad);
                 }
                 //If there arent any cities go to trades
 
@@ -124,6 +143,10 @@ public class WereldLaderImpl implements WereldLader {
             // s is not an integer
         }
         return isValidInteger;
+    }
+
+    public void addCity(Stad stad){
+        steden.add(stad);
     }
 
 
