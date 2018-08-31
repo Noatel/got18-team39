@@ -15,15 +15,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WereldLaderImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WereldLaderImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="122" column="51" lean-forward="false" selection-start-line="122" selection-start-column="51" selection-end-line="122" selection-end-column="51" />
+            <state relative-caret-position="47">
+              <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4193#4194#0" expanded="true" />
-                <element signature="e#4225#4226#0" expanded="true" />
+                <element signature="e#4135#4136#0" expanded="true" />
+                <element signature="e#4167#4168#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,10 +49,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WereldLaderImplTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WereldLaderImplTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/io/gameoftrades/student39/WereldLaderImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
+            <state relative-caret-position="542">
               <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
               <folding>
                 <element signature="method#zouDiepeKaartMoetenLaden#0;class#WereldLaderImplTest#0" expanded="false" />
@@ -217,6 +217,15 @@
               <item name="gameoftrades-student-kit" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="gameoftrades" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameoftrades-student-kit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameoftrades-student-kit" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -311,7 +320,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WereldLaderImplTest.zouHandelMetVerkeerdeVraagNietMoetenLaden">
+  <component name="RunManager" selected="Application.StudentUI">
+    <configuration name="StudentUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="io.gameoftrades.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="io.gameoftrades.ui.StudentUI" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="gameoftrades-student-kit" />
+      <envs />
+    </configuration>
     <configuration name="WereldLaderImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -350,31 +378,6 @@
       <option name="PACKAGE_NAME" value="io.gameoftrades.student39" />
       <option name="MAIN_CLASS_NAME" value="io.gameoftrades.student39.WereldLaderImplTest" />
       <option name="METHOD_NAME" value="zouBredeKaartMoetenLaden" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="WereldLaderImplTest.zouEenTeSmalleKaartNietMoetenLaden" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="io.gameoftrades.student39.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="gameoftrades-student-kit" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="io.gameoftrades.student39" />
-      <option name="MAIN_CLASS_NAME" value="io.gameoftrades.student39.WereldLaderImplTest" />
-      <option name="METHOD_NAME" value="zouEenTeSmalleKaartNietMoetenLaden" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -532,18 +535,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouEenTeSmalleKaartNietMoetenLaden" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouLegeKaartMoetenLaden" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouBredeKaartMoetenLaden" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouHandelMetVerkeerdeVraagNietMoetenLaden" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouLegeKaartMoetenLaden" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouBredeKaartMoetenLaden" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouHandelMetVerkeerdeVraagNietMoetenLaden" />
+      <item index="4" class="java.lang.String" itemvalue="Application.StudentUI" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouHandelMetVerkeerdeVraagNietMoetenLaden" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouBredeKaartMoetenLaden" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouLegeKaartMoetenLaden" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouEenTeSmalleKaartNietMoetenLaden" />
+        <item index="0" class="java.lang.String" itemvalue="Application.StudentUI" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouHandelMetVerkeerdeVraagNietMoetenLaden" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouBredeKaartMoetenLaden" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouLegeKaartMoetenLaden" />
       </list>
     </recent_temporary>
   </component>
@@ -562,7 +565,7 @@
       <updated>1535439041755</updated>
       <workItem from="1535439046203" duration="7248000" />
       <workItem from="1535448660894" duration="53000" />
-      <workItem from="1535448880679" duration="19648000" />
+      <workItem from="1535448880679" duration="20363000" />
     </task>
     <servers />
   </component>
@@ -599,7 +602,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26949000" />
+    <option name="totallyTimeSpent" value="27664000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1777" height="964" extended-state="0" />
@@ -693,8 +696,8 @@
           <caret line="53" column="29" lean-forward="true" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4193#4194#0" expanded="true" />
-            <element signature="e#4225#4226#0" expanded="true" />
+            <element signature="e#4135#4136#0" expanded="true" />
+            <element signature="e#4167#4168#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -999,17 +1002,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/io/gameoftrades/student39/WereldLaderImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
-          <folding>
-            <element signature="method#zouDiepeKaartMoetenLaden#0;class#WereldLaderImplTest#0" expanded="false" />
-            <element signature="method#zouKaartMetExtraSpatiesMoetenladen#0;class#WereldLaderImplTest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/handel-verkeerde-vraag.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1020,12 +1012,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="122" column="51" lean-forward="false" selection-start-line="122" selection-start-column="51" selection-end-line="122" selection-end-column="51" />
+        <state relative-caret-position="47">
+          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4193#4194#0" expanded="true" />
-            <element signature="e#4225#4226#0" expanded="true" />
+            <element signature="e#4135#4136#0" expanded="true" />
+            <element signature="e#4167#4168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/io/gameoftrades/student39/WereldLaderImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+          <folding>
+            <element signature="method#zouDiepeKaartMoetenLaden#0;class#WereldLaderImplTest#0" expanded="false" />
+            <element signature="method#zouKaartMetExtraSpatiesMoetenladen#0;class#WereldLaderImplTest#0" expanded="false" />
           </folding>
         </state>
       </provider>

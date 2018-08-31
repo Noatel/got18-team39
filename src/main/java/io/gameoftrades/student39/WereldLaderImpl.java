@@ -73,7 +73,6 @@ public class WereldLaderImpl implements WereldLader {
             //Numbers of how many cities there are
             if (isInteger(value) && i > 0) {
 
-
                 //Create first a final that only can assign once
                 final int amountCities = Integer.parseInt(value);
 
@@ -97,8 +96,7 @@ public class WereldLaderImpl implements WereldLader {
                     }
 
 
-                    System.out.println("(" + value + ")");
-                    Coordinaat coordinaat = Coordinaat.op(coordinate[0], coordinate[1]);
+//                    Coordinaat coordinaat = Coordinaat.op(coordinate[0], coordinate[1]);
 
                     //Add the class to the list steden
                 }
