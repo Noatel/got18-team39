@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d7c659a-94a4-4a92-bf17-a82a4b42bc55" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java" afterPath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java" />
     </list>
@@ -15,58 +16,71 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WereldLaderImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WereldLaderImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+            <state relative-caret-position="185">
+              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4135#4136#0" expanded="true" />
-                <element signature="e#4167#4168#0" expanded="true" />
+                <element signature="e#718#724#0" expanded="true" />
+                <element signature="e#780#788#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Coordinaat.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/kaart/Coordinaat.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="handel-verkeerde-vraag.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/handel-verkeerde-vraag.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WereldLaderImplTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WereldLaderImplTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/io/gameoftrades/student39/WereldLaderImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
-              <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+            <state relative-caret-position="164">
+              <caret line="102" column="47" lean-forward="false" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="47" />
               <folding>
                 <element signature="method#zouDiepeKaartMoetenLaden#0;class#WereldLaderImplTest#0" expanded="false" />
-                <element signature="method#zouKaartMetExtraSpatiesMoetenladen#0;class#WereldLaderImplTest#0" expanded="false" />
+                <element signature="e#3794#3795#0" expanded="true" />
+                <element signature="e#3862#3863#0" expanded="true" />
+                <element signature="e#3970#3971#0" expanded="true" />
+                <element signature="e#4037#4038#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brede-kaart.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/brede-kaart.txt">
+      <file leaf-file-name="te-korte-kaart.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/te-korte-kaart.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="15">
+              <caret line="1" column="1" lean-forward="false" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Handel.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/markt/Handel.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Handelswaar.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/markt/Handelswaar.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="voorbeeld-kaart.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/voorbeeld-kaart.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -75,18 +89,8 @@
       <file leaf-file-name="westeros-kaart.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/westeros-kaart.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="73" column="2" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stad.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/kaart/Stad.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="28" column="26" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="26" />
+            <state relative-caret-position="406">
+              <caret line="115" column="26" lean-forward="true" selection-start-line="115" selection-start-column="26" selection-end-line="117" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -94,10 +98,18 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>zouLegeKaartMoetenLaden</find>
       <find>getKaart(</find>
+      <find>te-korte</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -117,6 +129,10 @@
         <option value="$PROJECT_DIR$/src/test/resources/kaarten/testcases/lege-kaart.txt" />
         <option value="$PROJECT_DIR$/src/test/java/io/gameoftrades/ui/StudentUI.java" />
         <option value="$PROJECT_DIR$/src/test/java/io/gameoftrades/student39/WereldLaderImplTest.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/kaarten/testcases/te-korte-kaart.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Exception.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/InvalidSpeedException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/InvalidExceptionMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java" />
       </list>
     </option>
@@ -245,54 +261,6 @@
               <item name="kaarten" type="462c0819:PsiDirectoryNode" />
               <item name="testcases" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="gameoftrades-student-kit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="gameoftrades-student-kit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: io.gameoftrades:gameoftrades-library:0.5.0" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="gameoftrades-student-kit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: io.gameoftrades:gameoftrades-library:0.5.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="gameoftrades-library-0.5.0.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gameoftrades-student-kit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: io.gameoftrades:gameoftrades-library:0.5.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="gameoftrades-library-0.5.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="gameoftrades" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gameoftrades-student-kit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: io.gameoftrades:gameoftrades-library:0.5.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="gameoftrades-library-0.5.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="gameoftrades" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gameoftrades-student-kit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: io.gameoftrades:gameoftrades-library:0.5.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="gameoftrades-library-0.5.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="gameoftrades" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="kaart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gameoftrades-student-kit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: io.gameoftrades:gameoftrades-library:0.5.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="gameoftrades-library-0.5.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="gameoftrades" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="lader" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -320,7 +288,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.StudentUI">
+  <component name="RunManager" selected="JUnit.WereldLaderImplTest.zouEenTeKorteKaartNietMoetenLaden">
     <configuration name="StudentUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -365,7 +333,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="WereldLaderImplTest.zouBredeKaartMoetenLaden" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WereldLaderImplTest.zouEenTeKorteKaartNietMoetenLaden" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="io.gameoftrades.student39.*" />
@@ -377,7 +345,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="io.gameoftrades.student39" />
       <option name="MAIN_CLASS_NAME" value="io.gameoftrades.student39.WereldLaderImplTest" />
-      <option name="METHOD_NAME" value="zouBredeKaartMoetenLaden" />
+      <option name="METHOD_NAME" value="zouEenTeKorteKaartNietMoetenLaden" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -390,7 +358,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="WereldLaderImplTest.zouHandelMetVerkeerdeVraagNietMoetenLaden" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WereldLaderImplTest.zouEenTeSmalleKaartNietMoetenLaden" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="io.gameoftrades.student39.*" />
@@ -402,7 +370,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="io.gameoftrades.student39" />
       <option name="MAIN_CLASS_NAME" value="io.gameoftrades.student39.WereldLaderImplTest" />
-      <option name="METHOD_NAME" value="zouHandelMetVerkeerdeVraagNietMoetenLaden" />
+      <option name="METHOD_NAME" value="zouEenTeSmalleKaartNietMoetenLaden" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -415,7 +383,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="WereldLaderImplTest.zouLegeKaartMoetenLaden" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WereldLaderImplTest.zouVoorbeeldKaartMoetenLaden" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="io.gameoftrades.student39.*" />
@@ -427,7 +395,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="io.gameoftrades.student39" />
       <option name="MAIN_CLASS_NAME" value="io.gameoftrades.student39.WereldLaderImplTest" />
-      <option name="METHOD_NAME" value="zouLegeKaartMoetenLaden" />
+      <option name="METHOD_NAME" value="zouVoorbeeldKaartMoetenLaden" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -535,18 +503,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouLegeKaartMoetenLaden" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouBredeKaartMoetenLaden" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouHandelMetVerkeerdeVraagNietMoetenLaden" />
-      <item index="4" class="java.lang.String" itemvalue="Application.StudentUI" />
+      <item index="1" class="java.lang.String" itemvalue="Application.StudentUI" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouVoorbeeldKaartMoetenLaden" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouEenTeSmalleKaartNietMoetenLaden" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouEenTeKorteKaartNietMoetenLaden" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.StudentUI" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouHandelMetVerkeerdeVraagNietMoetenLaden" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouBredeKaartMoetenLaden" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouLegeKaartMoetenLaden" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouEenTeKorteKaartNietMoetenLaden" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouEenTeSmalleKaartNietMoetenLaden" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest.zouVoorbeeldKaartMoetenLaden" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.WereldLaderImplTest" />
+        <item index="4" class="java.lang.String" itemvalue="Application.StudentUI" />
       </list>
     </recent_temporary>
   </component>
@@ -565,44 +533,44 @@
       <updated>1535439041755</updated>
       <workItem from="1535439046203" duration="7248000" />
       <workItem from="1535448660894" duration="53000" />
-      <workItem from="1535448880679" duration="20363000" />
+      <workItem from="1535448880679" duration="29148000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WereldLaderImplTest - 2018.08.31 at 08h 55m 57s.xml">
-      <configuration name="WereldLaderImplTest" configurationId="JUnit" />
+    <history-entry file="WereldLaderImplTest_zouEenTeKorteKaartNietMoetenLaden - 2018.08.31 at 11h 42m 48s.xml">
+      <configuration name="WereldLaderImplTest.zouEenTeKorteKaartNietMoetenLaden" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WereldLaderImplTest - 2018.08.31 at 08h 59m 04s.xml">
-      <configuration name="WereldLaderImplTest" configurationId="JUnit" />
+    <history-entry file="WereldLaderImplTest_zouEenTeKorteKaartNietMoetenLaden - 2018.08.31 at 11h 43m 11s.xml">
+      <configuration name="WereldLaderImplTest.zouEenTeKorteKaartNietMoetenLaden" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WereldLaderImplTest - 2018.08.31 at 09h 15m 36s.xml">
-      <configuration name="WereldLaderImplTest" configurationId="JUnit" />
+    <history-entry file="WereldLaderImplTest_zouEenTeKorteKaartNietMoetenLaden - 2018.08.31 at 11h 44m 04s.xml">
+      <configuration name="WereldLaderImplTest.zouEenTeKorteKaartNietMoetenLaden" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WereldLaderImplTest - 2018.08.31 at 09h 19m 34s.xml">
-      <configuration name="WereldLaderImplTest" configurationId="JUnit" />
+    <history-entry file="WereldLaderImplTest_zouEenTeKorteKaartNietMoetenLaden - 2018.08.31 at 11h 44m 22s.xml">
+      <configuration name="WereldLaderImplTest.zouEenTeKorteKaartNietMoetenLaden" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WereldLaderImplTest - 2018.08.31 at 09h 24m 14s.xml">
-      <configuration name="WereldLaderImplTest" configurationId="JUnit" />
+    <history-entry file="WereldLaderImplTest_zouEenTeKorteKaartNietMoetenLaden - 2018.08.31 at 11h 44m 56s.xml">
+      <configuration name="WereldLaderImplTest.zouEenTeKorteKaartNietMoetenLaden" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WereldLaderImplTest_zouBredeKaartMoetenLaden - 2018.08.29 at 18h 32m 55s.xml">
-      <configuration name="WereldLaderImplTest.zouBredeKaartMoetenLaden" configurationId="JUnit" />
+    <history-entry file="WereldLaderImplTest_zouEenTeKorteKaartNietMoetenLaden - 2018.08.31 at 11h 45m 24s.xml">
+      <configuration name="WereldLaderImplTest.zouEenTeKorteKaartNietMoetenLaden" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WereldLaderImplTest_zouBredeKaartMoetenLaden - 2018.08.30 at 11h 09m 56s.xml">
-      <configuration name="WereldLaderImplTest.zouBredeKaartMoetenLaden" configurationId="JUnit" />
+    <history-entry file="WereldLaderImplTest_zouEenTeKorteKaartNietMoetenLaden - 2018.08.31 at 12h 06m 11s.xml">
+      <configuration name="WereldLaderImplTest.zouEenTeKorteKaartNietMoetenLaden" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WereldLaderImplTest_zouBredeKaartMoetenLaden - 2018.08.30 at 11h 11m 29s.xml">
-      <configuration name="WereldLaderImplTest.zouBredeKaartMoetenLaden" configurationId="JUnit" />
+    <history-entry file="WereldLaderImplTest_zouEenTeKorteKaartNietMoetenLaden - 2018.08.31 at 12h 06m 27s.xml">
+      <configuration name="WereldLaderImplTest.zouEenTeKorteKaartNietMoetenLaden" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WereldLaderImplTest_zouHandelMetVerkeerdeVraagNietMoetenLaden - 2018.08.31 at 09h 24m 29s.xml">
-      <configuration name="WereldLaderImplTest.zouHandelMetVerkeerdeVraagNietMoetenLaden" configurationId="JUnit" />
+    <history-entry file="WereldLaderImplTest_zouEenTeKorteKaartNietMoetenLaden - 2018.08.31 at 12h 06m 45s.xml">
+      <configuration name="WereldLaderImplTest.zouEenTeKorteKaartNietMoetenLaden" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WereldLaderImplTest_zouHandelMetVerkeerdeVraagNietMoetenLaden - 2018.08.31 at 09h 24m 41s.xml">
-      <configuration name="WereldLaderImplTest.zouHandelMetVerkeerdeVraagNietMoetenLaden" configurationId="JUnit" />
+    <history-entry file="WereldLaderImplTest_zouEenTeSmalleKaartNietMoetenLaden - 2018.08.31 at 11h 42m 36s.xml">
+      <configuration name="WereldLaderImplTest.zouEenTeSmalleKaartNietMoetenLaden" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27664000" />
+    <option name="totallyTimeSpent" value="36449000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1777" height="964" extended-state="0" />
@@ -645,63 +613,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/io/gameoftrades/ui/StudentUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/lader/WereldLader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/westeros-kaart.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/lege-kaart.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/io/gameoftrades/ui/StudentUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="29" lean-forward="true" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4135#4136#0" expanded="true" />
-            <element signature="e#4167#4168#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/lader/WereldLader.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -734,8 +650,8 @@
             <element signature="imports" expanded="false" />
             <element signature="method#zouDiepeKaartMoetenLaden#0;class#WereldLaderImplTest#0" expanded="false" />
             <element signature="method#zouKaartMetExtraSpatiesMoetenladen#0;class#WereldLaderImplTest#0" expanded="false" />
-            <element signature="e#3794#3795#0" expanded="false" />
-            <element signature="e#3862#3863#0" expanded="false" />
+            <element signature="e#3794#3795#0" expanded="true" />
+            <element signature="e#3862#3863#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -783,14 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/markt/HandelType.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -858,26 +766,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/lader/WereldLader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/verkeerd-gebied.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/util/Assert.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -906,50 +798,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/te-korte-kaart.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/markt/Markt.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="17" column="36" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/westeros-kaart.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="73" column="2" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/te-smalle-kaart.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/lege-kaart.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/brede-kaart.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -978,6 +830,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/handel-verkeerde-vraag.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/brede-kaart.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/kaart/Coordinaat.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/java/lang/NumberFormatException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/westeros-kaart.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="115" column="26" lean-forward="true" selection-start-line="115" selection-start-column="26" selection-end-line="117" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/Wereld.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -986,49 +878,156 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/kaart/Coordinaat.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/markt/HandelType.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        <state relative-caret-position="75">
+          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/kaart/Stad.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="28" column="26" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="26" />
+        <state relative-caret-position="285">
+          <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/handel-verkeerde-vraag.txt">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/markt/Markt.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="8" />
+        <state relative-caret-position="120">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/markt/Handelswaar.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/markt/Handel.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/voorbeeld-kaart.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/te-smalle-kaart.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="5" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/io/gameoftrades/student39/WereldLaderImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="102" column="47" lean-forward="false" selection-start-line="102" selection-start-column="39" selection-end-line="102" selection-end-column="47" />
+          <folding>
+            <element signature="method#zouDiepeKaartMoetenLaden#0;class#WereldLaderImplTest#0" expanded="false" />
+            <element signature="e#3794#3795#0" expanded="true" />
+            <element signature="e#3862#3863#0" expanded="true" />
+            <element signature="e#3970#3971#0" expanded="true" />
+            <element signature="e#4037#4038#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/util/HandelaarScanner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/util/Assert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/ui/overlay/Overlay.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/lader/WereldLader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/debug/Debugger.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/debug/Debuggable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/debug/AsciiArtDebugger.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/te-korte-kaart.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="1" lean-forward="false" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/InvalidExceptionMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="34" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+        <state relative-caret-position="185">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4135#4136#0" expanded="true" />
-            <element signature="e#4167#4168#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/io/gameoftrades/student39/WereldLaderImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
-          <folding>
-            <element signature="method#zouDiepeKaartMoetenLaden#0;class#WereldLaderImplTest#0" expanded="false" />
-            <element signature="method#zouKaartMetExtraSpatiesMoetenladen#0;class#WereldLaderImplTest#0" expanded="false" />
+            <element signature="e#718#724#0" expanded="true" />
+            <element signature="e#780#788#0" expanded="true" />
           </folding>
         </state>
       </provider>

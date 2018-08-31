@@ -6,32 +6,28 @@ import io.gameoftrades.model.kaart.Kaart;
 import io.gameoftrades.model.kaart.Stad;
 import io.gameoftrades.model.lader.WereldLader;
 import io.gameoftrades.model.markt.Handel;
+import io.gameoftrades.model.markt.HandelType;
+import io.gameoftrades.model.markt.Handelswaar;
 import io.gameoftrades.model.markt.Markt;
 
-import java.util.List;
-import java.util.Scanner;
-
+import java.io.FileNotFoundException;
+import java.util.*;
 
 public class WereldLaderImpl implements WereldLader {
 
 
+    //The world & coordinate
     private int[] coordinate = new int[2];
-
-    //The world
-    private Wereld wereld;
     private Kaart kaart;
 
-
     //Cities and trade
-    private List<Stad> steden;
-    private List<Handel> handel;
+    private ArrayList<Stad> steden = new ArrayList<Stad>();
+    private ArrayList<Handel> trades = new ArrayList<Handel>();
 
-
-    //Amount of cities / markets
-    private final int amountMarkets = 0;
 
     @Override
-    public Wereld laad(String resource) {
+    public Wereld laad(String resource)  {
+
         //
         // Gebruik this.getClass().getResourceAsStream(resource) om een resource van het classpath te lezen.
         //
@@ -40,19 +36,15 @@ public class WereldLaderImpl implements WereldLader {
         // TODO Laad de wereld!
         //
 
+
         int i = 0;
-
-
         //initialize scanner and load the file
         Scanner scanner = new Scanner(this.getClass().getResourceAsStream(resource));
-
-
+        String value = scanner.nextLine();
         //check each line in scanner
         while (scanner.hasNextLine()) {
-            String value = scanner.nextLine();
 
             //Put the scanner data in a string
-
             //Because the first line always represent the coords
             if (i == 0) {
                 //Split the data from the scanner and put it in the
@@ -60,12 +52,22 @@ public class WereldLaderImpl implements WereldLader {
                 String[] splitCoordinates = value.split(",");
 
                 //Convert the data coords to int
-                for (int j = 0; j < splitCoordinates.length; j++) {
-                    coordinate[j] = Integer.parseInt(splitCoordinates[j]);
-                }
+                coordinate[0] = Integer.parseInt(splitCoordinates[0]);
+                coordinate[1] = Integer.parseInt(splitCoordinates[1]);
 
                 //Create the map, width - height
                 kaart = new Kaart(coordinate[0], coordinate[1]);
+            }
+
+            //Kaart output:
+
+            if (i <= kaart.getHoogte() && i > 0) {
+                if (!isInteger(value)) {
+                    System.out.println("Char");
+                } else {
+                    //ERROR HANDLING
+                    throw new java.lang.RuntimeException("De map is te kort");
+                }
 
             }
 
@@ -80,51 +82,71 @@ public class WereldLaderImpl implements WereldLader {
                 if (amountCities > 0) {
 
                     //For the amount of cities that they are loop through
-                    for(int j = 0; j < amountCities; j++) {
+                    for (int j = 0; j < amountCities; j++) {
 
                         //Split the cities
-                        String city = scanner.nextLine();
-                        String[] splitCity = city.split(",");
+                        String cityData = scanner.nextLine();
+                        String[] splitCity = cityData.split(",");
+
+                        Integer coordX = Integer.parseInt(splitCity[0]);
+                        Integer coordY = Integer.parseInt(splitCity[1]);
+                        String cityName = splitCity[2];
 
                         //Create the coordinate
-                        Coordinaat cityCoordinate = Coordinaat.op(Integer.parseInt(splitCity[0]),Integer.parseInt(splitCity[1]));
+                        Coordinaat cityCoordinate = Coordinaat.op(coordX, coordY);
 
                         //Create the city
-                        Stad stad = new Stad(cityCoordinate, splitCity[2]);
-                        this.addCity(stad);
+                        Stad stad = new Stad(cityCoordinate, cityName);
 
+                        steden.add(stad);
                     }
 
+                    final int amountMarkets = Integer.parseInt(scanner.nextLine());
 
-//                    Coordinaat coordinaat = Coordinaat.op(coordinate[0], coordinate[1]);
+                    for (int j = 0; j < amountMarkets; j++) {
 
-                    //Add the class to the list steden
+                        //Split the cities
+                        String marktData = scanner.nextLine();
+                        String[] splitMarkt = marktData.split(",");
+
+                        String cityName = splitMarkt[0];
+                        String VraagBod = splitMarkt[1];
+                        String product = splitMarkt[2];
+                        Integer prijs = Integer.parseInt(splitMarkt[3]);
+
+                        Handelswaar handelswaar = new Handelswaar(product);
+                        HandelType type = HandelType.valueOf(VraagBod);
+
+                        for (Stad stad : steden) {
+                            if (cityName.equals(stad.getNaam())) {
+                                Handel handel = new Handel(stad, type, handelswaar, prijs);
+                                trades.add(handel);
+                            }
+                        }
+                    }
                 }
-                //If there arent any cities go to trades
-
             }
 
             i++;
-
-
             //if the scanner has a next line, go to the next line
             if (scanner.hasNextLine()) {
                 // Go to the next line:
-                scanner.nextLine();
+                value = scanner.nextLine();
             }
-
-
         }
-
-
-        //Create the world with the variables
-//        wereld = new Wereld(kaart, steden, markt);
 
         //Close the scanner
         scanner.close();
 
-        return null;
+        //Create a marketplace with all the trades
+        Markt markets = new Markt(trades);
+
+        //Create the world with the variables
+        Wereld world = new Wereld(kaart, steden, markets);
+
+        return world;
     }
+
 
     //Check if its a integer
     public static boolean isInteger(String s) {
@@ -142,10 +164,4 @@ public class WereldLaderImpl implements WereldLader {
         }
         return isValidInteger;
     }
-
-    public void addCity(Stad stad){
-        steden.add(stad);
-    }
-
-
 }
