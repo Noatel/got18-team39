@@ -26,7 +26,7 @@ public class WereldLaderImpl implements WereldLader {
 
 
     @Override
-    public Wereld laad(String resource)  {
+    public Wereld laad(String resource) {
 
         //
         // Gebruik this.getClass().getResourceAsStream(resource) om een resource van het classpath te lezen.
@@ -43,6 +43,9 @@ public class WereldLaderImpl implements WereldLader {
         String value = scanner.nextLine();
         //check each line in scanner
         while (scanner.hasNextLine()) {
+
+            //Remove all the white spaces
+            value = value.replaceAll("\\s+", "");
 
             //Put the scanner data in a string
             //Because the first line always represent the coords
@@ -63,12 +66,27 @@ public class WereldLaderImpl implements WereldLader {
 
             if (i <= kaart.getHoogte() && i > 0) {
                 if (!isInteger(value)) {
-                    System.out.println("Char");
+                    //The map must be the same width as given
+                    if (value.length() == kaart.getBreedte()) {
+                        //Foreach charachter in the string
+                        Integer coordY = i - 1;
+                        Integer coordX = 0;
+                        for (char ch : value.toCharArray()) {
+                            System.out.println("CoordY" + coordY);
+                            System.out.println("CoordX" + coordX);
+                            System.out.println(i);
+                            System.out.println(ch);
+                            coordX++;
+                        }
+
+                    } else {
+                        //ERROR HANDLING
+                        throw new IllegalArgumentException("De kaart is te breed");
+                    }
                 } else {
                     //ERROR HANDLING
-                    throw new java.lang.RuntimeException("De map is te kort");
+                    throw new IllegalArgumentException("De kaart is te klein");
                 }
-
             }
 
             //If it is a integer AND its not the first row
@@ -83,45 +101,19 @@ public class WereldLaderImpl implements WereldLader {
 
                     //For the amount of cities that they are loop through
                     for (int j = 0; j < amountCities; j++) {
-
-                        //Split the cities
-                        String cityData = scanner.nextLine();
-                        String[] splitCity = cityData.split(",");
-
-                        Integer coordX = Integer.parseInt(splitCity[0]);
-                        Integer coordY = Integer.parseInt(splitCity[1]);
-                        String cityName = splitCity[2];
-
-                        //Create the coordinate
-                        Coordinaat cityCoordinate = Coordinaat.op(coordX, coordY);
-
-                        //Create the city
-                        Stad stad = new Stad(cityCoordinate, cityName);
-
-                        steden.add(stad);
+                        String cityData = scanner.nextLine().replaceAll("\\s+", "");
+                        createCity(cityData);
                     }
 
-                    final int amountMarkets = Integer.parseInt(scanner.nextLine());
+                    //Create first a final that only can assign once
 
-                    for (int j = 0; j < amountMarkets; j++) {
+                    final int amountMarkets = Integer.parseInt(scanner.nextLine().replaceAll("\\s+", ""));
 
-                        //Split the cities
-                        String marktData = scanner.nextLine();
-                        String[] splitMarkt = marktData.split(",");
-
-                        String cityName = splitMarkt[0];
-                        String VraagBod = splitMarkt[1];
-                        String product = splitMarkt[2];
-                        Integer prijs = Integer.parseInt(splitMarkt[3]);
-
-                        Handelswaar handelswaar = new Handelswaar(product);
-                        HandelType type = HandelType.valueOf(VraagBod);
-
-                        for (Stad stad : steden) {
-                            if (cityName.equals(stad.getNaam())) {
-                                Handel handel = new Handel(stad, type, handelswaar, prijs);
-                                trades.add(handel);
-                            }
+                    //If the amount of markets is heiger then 0
+                    if (amountMarkets > 0) {
+                        for (int j = 0; j < amountMarkets; j++) {
+                            String marketData = scanner.nextLine().replaceAll("\\s+", "");
+                            createMarket(marketData);
                         }
                     }
                 }
@@ -144,7 +136,68 @@ public class WereldLaderImpl implements WereldLader {
         //Create the world with the variables
         Wereld world = new Wereld(kaart, steden, markets);
 
+        System.out.println(world.getSteden().size());
+        System.out.println(world.getKaart().getBreedte());
+        System.out.println(world.getKaart().getHoogte());
+
         return world;
+    }
+
+    public void createCity(String cityData) {
+        //Create a city
+        String[] splitCity = cityData.split(",");
+
+        Integer coordX = Integer.parseInt(splitCity[0]);
+        Integer coordY = Integer.parseInt(splitCity[1]);
+
+
+        System.out.println(coordX +"-"+kaart.getBreedte());
+
+        //The city that we define needs to be between the coordinates
+        //Still not working optimal
+        if (coordX <= kaart.getBreedte()) {
+            throw new IllegalArgumentException("Stad staat buiten de map, breedte");
+        }
+        if (coordY <= kaart.getHoogte()) {
+            throw new IllegalArgumentException("Stad staat buiten de map, hoogte");
+        }
+
+        String cityName = splitCity[2];
+
+        //Create the coordinate
+        Coordinaat cityCoordinate = Coordinaat.op(coordX, coordY);
+
+        //Create the city
+        Stad stad = new Stad(cityCoordinate, cityName);
+
+        //Add the city to the arrayList
+        steden.add(stad);
+    }
+
+    public void createMarket(String marktData) {
+        String[] splitMarkt = marktData.split(",");
+
+        String cityName = splitMarkt[0];
+        String VraagBod = splitMarkt[1];
+        String product = splitMarkt[2];
+        Integer prijs = Integer.parseInt(splitMarkt[3]);
+
+        Handelswaar handelswaar = new Handelswaar(product);
+        HandelType type = HandelType.valueOf(VraagBod);
+
+        //Foreach city we got
+        for (Stad stad : steden) {
+            //If the city name is the same
+            if (cityName.contains(stad.getNaam())) {
+                //Add handel
+                Handel handel = new Handel(stad, type, handelswaar, prijs);
+                trades.add(handel);
+            } else {
+                System.out.println(stad.toString());
+                //If it doesn't exsist the city is invalid
+                throw new IllegalArgumentException("Stad bestaat niet");
+            }
+        }
     }
 
 
