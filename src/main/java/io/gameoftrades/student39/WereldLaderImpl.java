@@ -37,6 +37,7 @@ public class WereldLaderImpl implements WereldLader {
 
 
         int i = 0;
+
         //initialize scanner and load the file
         Scanner scanner = new Scanner(this.getClass().getResourceAsStream(resource));
         String value = scanner.nextLine();
@@ -113,7 +114,6 @@ public class WereldLaderImpl implements WereldLader {
                     final int amountMarkets = Integer.parseInt(scannerMarkets);
 
 
-
                     //If the amount of markets is heiger then 0
                     if (amountMarkets > 0) {
                         for (int j = 0; j < amountMarkets; j++) {
@@ -157,9 +157,9 @@ public class WereldLaderImpl implements WereldLader {
         Coordinaat cityCoordinate = Coordinaat.op(coordX, coordY);
 
 
-        if(coordX == 0 && coordY == 0){
+        if (coordX == 0 && coordY == 0) {
             throw new IllegalArgumentException("Stad staat buiten de map");
-        } else{
+        } else {
             coordX--;
             coordY--;
         }
@@ -167,8 +167,6 @@ public class WereldLaderImpl implements WereldLader {
         if (!kaart.isOpKaart(cityCoordinate)) {
             throw new IllegalArgumentException("Stad staat buiten de map");
         }
-
-
 
 
         //The city that we define needs to be between the coordinates
@@ -197,7 +195,7 @@ public class WereldLaderImpl implements WereldLader {
         String VraagBod = splitMarkt[1];
         String product = splitMarkt[2];
         Integer prijs = Integer.parseInt(splitMarkt[3]);
-        
+
         Handelswaar handelswaar = new Handelswaar(product);
         HandelType type = HandelType.valueOf(VraagBod);
 
@@ -212,7 +210,6 @@ public class WereldLaderImpl implements WereldLader {
             }
         }
     }
-
 
     //Check if its a integer
     public static boolean isInteger(String s) {
