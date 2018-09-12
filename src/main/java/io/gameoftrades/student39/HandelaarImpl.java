@@ -39,27 +39,9 @@ public class HandelaarImpl implements Handelaar {
     @Override
     public SnelstePadAlgoritme nieuwSnelstePadAlgoritme()  {
         // TODO Auto-generated method stub
-        WereldLader lader = nieuweWereldLader();
 
-        //Load the world
-        Wereld wereld = lader.laad("/kaarten/voorbeeld-kaart.txt");
-
-
-        //Get the map and the cities
-        Kaart map = wereld.getKaart();
-        Stad van = wereld.getSteden().get(0);
-        Stad naar = wereld.getSteden().get(1);
-
-        Coordinaat beginLocatie = van.getCoordinaat();
-        Coordinaat eindLocatie = naar.getCoordinaat();
-
-        //Algoritme
-
-        //Calculate the map, coord start and coord end
+        //Load in the algorithm
         AStar astar = new AStar();
-        System.out.println("------- START -------");
-        Pad pad = astar.bereken(map,beginLocatie,eindLocatie);
-        System.out.println("-------- END --------");
 
         return astar;
         
