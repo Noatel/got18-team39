@@ -5,9 +5,12 @@ import io.gameoftrades.model.Wereld;
 import io.gameoftrades.model.algoritme.HandelsplanAlgoritme;
 import io.gameoftrades.model.algoritme.SnelstePadAlgoritme;
 import io.gameoftrades.model.algoritme.StedenTourAlgoritme;
+import io.gameoftrades.model.kaart.Coordinaat;
 import io.gameoftrades.model.kaart.Kaart;
+import io.gameoftrades.model.kaart.Pad;
 import io.gameoftrades.model.kaart.Stad;
 import io.gameoftrades.model.lader.WereldLader;
+import io.gameoftrades.student39.Algoritme.AStar;
 
 /**
  * Welkom bij Game of Trades!
@@ -21,6 +24,7 @@ import io.gameoftrades.model.lader.WereldLader;
  */
 public class HandelaarImpl implements Handelaar {
 
+
     /**
      * Opdracht 1, zie ook de handige test-set in WereldLaderImplTest.
      */
@@ -33,20 +37,32 @@ public class HandelaarImpl implements Handelaar {
      * Opdracht 2
      */
     @Override
-    public SnelstePadAlgoritme nieuwSnelstePadAlgoritme() {
+    public SnelstePadAlgoritme nieuwSnelstePadAlgoritme()  {
         // TODO Auto-generated method stub
         WereldLader lader = nieuweWereldLader();
+
+        //Load the world
         Wereld wereld = lader.laad("/kaarten/voorbeeld-kaart.txt");
 
-        Kaart kaart = wereld.getKaart();
+
+        //Get the map and the cities
+        Kaart map = wereld.getKaart();
         Stad van = wereld.getSteden().get(0);
         Stad naar = wereld.getSteden().get(1);
 
-        System.out.println(kaart);
-        System.out.println(van);
-        System.out.println(naar);
+        Coordinaat beginLocatie = van.getCoordinaat();
+        Coordinaat eindLocatie = naar.getCoordinaat();
 
-        return null;
+        //Algoritme
+
+        //Calculate the map, coord start and coord end
+        AStar astar = new AStar();
+        System.out.println("------- START -------");
+        Pad pad = astar.bereken(map,beginLocatie,eindLocatie);
+        System.out.println("-------- END --------");
+
+        return astar;
+        
     }
 
     /**
