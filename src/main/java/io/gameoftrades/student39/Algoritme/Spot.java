@@ -11,9 +11,10 @@ public class Spot {
 
     private Terrein terrain;
 
-    private int f;
+    private double f;
     private int g;
     private double h;
+    private Spot previous = null;
     private ArrayList<Coordinaat> neighbors;
 
 
@@ -23,9 +24,9 @@ public class Spot {
         this.terrain = terrain;
 
         //Tutorial stuff maybe remove later
-        this.f = 0;
-        this.g = 0;
+        this.f = 0.00;
         this.h = terrain.getCoordinaat().afstandTot(end);
+        this.g = 0;
 
         //Check if it got any neighbors
         this.neighbors = new ArrayList<Coordinaat>();
@@ -34,6 +35,14 @@ public class Spot {
     public void addNeighbors(Coordinaat coordinaat) {
 
 
+    }
+
+    public void setPrevious(Spot previous) {
+        this.previous = previous;
+    }
+
+    public Spot getPrevious() {
+        return this.previous;
     }
 
     public Coordinaat getCoordinate() {
@@ -45,11 +54,11 @@ public class Spot {
     }
 
 
-    public int getF() {
+    public double getF() {
         return f;
     }
 
-    public void setF(int f){
+    public void setF(double f) {
         this.f = f;
     }
 
@@ -73,5 +82,6 @@ public class Spot {
     public String toString() {
         return "[" + this.coordinate.getX() + ", " + this.coordinate.getY() + "]";
     }
+
 
 }
