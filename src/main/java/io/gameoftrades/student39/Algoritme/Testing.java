@@ -34,6 +34,7 @@ public class Testing {
         for (char c : value.toCharArray()) {
             if (c == 'S') {
                 System.out.print("[ S ]");
+
             } else if (c == 'Z') {
                 System.out.print("[ Z ]");
             } else {

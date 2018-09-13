@@ -30,18 +30,36 @@ public class PadImpl implements Pad {
     @Override
     public Pad omgekeerd(){
         //Reverse path
-        PadImpl reverse = new PadImpl(this.moves);
+        //http://www.java2s.com/Tutorial/Java/0140__Collections/Reversestheorderofthegivenobjectarray.htm
 
-        //Reverse the array
-        for (int i =0; i < this.moves.length; i++){
-            System.out.println("moves="+this.moves);
+        int i = 0;
+        int j = this.moves.length - 1;
+
+//        for(int k = 0; k < this.moves.length; k++){
+//            System.out.println("old="+this.moves[k]);
+//        }
+
+        Richting tmp;
+        while (j > i) {
+            tmp = this.moves[j];
+            this.moves[j] = this.moves[i];
+            this.moves[i] = tmp;
+            j--;
+            i++;
         }
+
+//        for(int k = 0; k < this.moves.length; k++){
+//            System.out.println("new="+this.moves[k]);
+//        }
+
+        Pad reverse = new PadImpl(this.moves);
 
         return reverse;
     }
 
     @Override
     public Coordinaat volg(Coordinaat var1){
+        //Pakt de volgende waarde uit de richting array
 
         return var1;
     }
