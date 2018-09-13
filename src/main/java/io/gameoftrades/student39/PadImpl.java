@@ -4,6 +4,9 @@ import io.gameoftrades.model.kaart.Coordinaat;
 import io.gameoftrades.model.kaart.Pad;
 import io.gameoftrades.model.kaart.Richting;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class PadImpl implements Pad {
 
     private Richting[] moves;
@@ -27,8 +30,12 @@ public class PadImpl implements Pad {
     @Override
     public Pad omgekeerd(){
         //Reverse path
-        PadImpl reverse = new PadImpl(moves);
+        PadImpl reverse = new PadImpl(this.moves);
 
+        //Reverse the array
+        for (int i =0; i < this.moves.length; i++){
+            System.out.println("moves="+this.moves);
+        }
 
         return reverse;
     }
