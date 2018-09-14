@@ -11,14 +11,13 @@ public class PadImpl implements Pad {
 
     private Richting[] moves;
 
-    public PadImpl(Richting[] moves){
+    public PadImpl(Richting[] moves) {
         this.moves = moves;
     }
 
     @Override
     public int getTotaleTijd() {
-
-        return 0;
+        return moves.length;
     }
 
 
@@ -28,7 +27,7 @@ public class PadImpl implements Pad {
     }
 
     @Override
-    public Pad omgekeerd(){
+    public Pad omgekeerd() {
         //Reverse path
         //http://www.java2s.com/Tutorial/Java/0140__Collections/Reversestheorderofthegivenobjectarray.htm
 
@@ -52,15 +51,15 @@ public class PadImpl implements Pad {
 //            System.out.println("new="+this.moves[k]);
 //        }
 
-        Pad reverse = new PadImpl(this.moves);
-
-        return reverse;
+        return new PadImpl(this.moves);
     }
 
     @Override
-    public Coordinaat volg(Coordinaat var1){
+    public Coordinaat volg(Coordinaat coordinaat) {
         //Pakt de volgende waarde uit de richting array
-
-        return var1;
+        for (Richting direction : moves) {
+            coordinaat = coordinaat.naar(direction);
+        }
+        return coordinaat;
     }
 }

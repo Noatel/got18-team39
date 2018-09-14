@@ -25,6 +25,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
     }
 
     public AStar() {
+        //Creating something
 
     }
 
@@ -32,6 +33,10 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         //Testing
         Testing.testingMap(kaart);
         //Remove testing
+
+
+        System.out.println("currentXY=" + start.toString() + "-" + end.toString());
+
 
         //clear the open and close set
         openSet.clear();
@@ -44,7 +49,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 //        System.out.println(start.toString());
 
         Terrein startTerrain = kaart.getTerreinOp(start);
-        Spot startSpot = new Spot(startTerrain, end);
+        Spot startSpot = new Spot(startTerrain, start);
 
         openSet.add(startSpot);
 
@@ -53,9 +58,11 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         Spot endSpot = new Spot(endTerrain, end);
 
 
+        int k = 0;
         //while openSet is not empty
-        while (!openSet.isEmpty()) {
-            int lowestSpot = 0;
+        int lowestSpot = 0;
+
+        while (openSet.size() > 0) {
 
             //current := the node in openSet having the lowest fScore[] value
             for (int i = 0; i < openSet.size(); i++) {
@@ -64,6 +71,8 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                 }
             }
 
+            System.out.println("lowesSpot=" + lowestSpot);
+
             //Get the lowest f score spot in the arraylist
             //First get the coordinate
             //Second compare the coordinate to the end coordinate
@@ -71,8 +80,8 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
             Coordinaat currentCoordinate = currentSpot.getCoordinate();
 
             // if current = goal
-            System.out.println("End spot=" + endSpot.getCoordinate().toString());
-            System.out.println("current spot=" + currentCoordinate.toString());
+//            System.out.println("End spot=" + endSpot.getCoordinate().toString());
+//            System.out.println("current spot=" + currentCoordinate.toString());
 
             if (currentCoordinate.equals(endSpot.getCoordinate())) {
 //                System.out.println("endCoord=" + endSpot.getCoordinate().toString() + " currentCoord=" + currentCoordinate.toString());
@@ -80,7 +89,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                 //After that a array because Richting[] expect a array
 
                 //Get the previous spot and override
-                Spot previousSpot = currentSpot.getPrevious();
+                Spot previousSpot = currentSpot;
 
                 //Get the first
 //                System.out.println("Start while currrentSPot.getPrevious() =" + previousSpot.getCoordinate().toString());
@@ -88,37 +97,45 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 //                    System.out.println(previousSpot.getCoordinate().toString());
 //                    System.out.println(previousSpot.getPrevious().getCoordinate().toString());
 
-                    Coordinaat lastSpot = previousSpot.getCoordinate();
-                    Coordinaat lastPreviousSpot = previousSpot.getPrevious().getCoordinate();
+                    Coordinaat lastSpot = previousSpot.getTerrain().getCoordinaat();
+                    Coordinaat lastPreviousSpot = previousSpot.getPrevious().getTerrain().getCoordinaat();
 
                     Richting direction = Richting.tussen(lastSpot, lastPreviousSpot);
 
-                    System.out.println("from="+lastSpot.toString()+" to="+lastPreviousSpot.toString());
-                    System.out.println("direction="+direction);
+//                    System.out.println("from=" + lastSpot.toString() + " to=" + lastPreviousSpot.toString());
+//                    System.out.println("direction=" + direction);
+//                    System.out.println("from=" + previousSpot.getTerrain().getTerreinType() + " to=" + previousSpot.getPrevious().getTerrain().getTerreinType());
 
                     route.add(direction);
 
-
                     //Change the previous spot
+                    System.out.println("coords=" + previousSpot.getCoordinate());
+
                     previousSpot = previousSpot.getPrevious();
                 }
 
-                System.out.println("routesize("+route.size()+")");
-                System.out.println("end while currrentSPot.getPrevious()");
+//              System.out.println("routesize(" + route.size() + ")");
+//              System.out.println("end while currrentSPot.getPrevious()");
 
                 //Creating a path, convert the arraylist to a array
                 Richting[] path = route.toArray(new Richting[route.size()]);
                 PadImpl reversePath = new PadImpl(path);
 
+                //Testing
+                for (Richting richting : path) {
+                    System.out.println("to-" + richting + " ");
+                }
+                //EndTesting
+
                 //Reverse the array
-
                 Pad finalPath = reversePath.omgekeerd();
-
-                debug.debugPad(kaart, start, finalPath);
+                debug.debugPad(kaart, end, finalPath);
 
                 System.out.println("DONE");
-                //Got the path , stop the loop
-                break;
+                System.out.println("amount" + finalPath.getTotaleTijd());
+
+                //Got the path , return it
+                return finalPath;
             }
 
 
@@ -126,6 +143,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
             Richting[] directions = currentSpot.getTerrain().getMogelijkeRichtingen();
 
             for (Richting direction : directions) {
+                System.out.println("coords=" + currentSpot.getCoordinate().toString());
 
                 System.out.println(direction);
                 Terrein currentTerrein = kaart.kijk(currentSpot.getTerrain(), direction);
@@ -151,24 +169,14 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                     tempSpot.setPrevious(currentSpot);
                     tempSpot.setF(tempSpot.getG() + tempSpot.getH());
                 }
-
             }
-
-            //testing
-//            for (int i = 0; i < openSet.size(); i++) {
-//                System.out.println( openSet.get(i).toString());
-//            }
-//            System.exit(0);
-            //end testing
-
             //Remove from open, add to close
             openSet.remove(currentSpot);
             closedSet.add(currentSpot);
 
-//            System.out.println("OpensetSize (" + openSet.size() + ") ClosedSetSize (" + closedSet.size() + ")");
-
         }
 
+        //Probaly never comes here
         return null;
     }
 
