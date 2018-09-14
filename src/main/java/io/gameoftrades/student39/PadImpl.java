@@ -4,6 +4,7 @@ import io.gameoftrades.model.kaart.Coordinaat;
 import io.gameoftrades.model.kaart.Pad;
 import io.gameoftrades.model.kaart.Richting;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -34,9 +35,7 @@ public class PadImpl implements Pad {
         int i = 0;
         int j = this.moves.length - 1;
 
-//        for(int k = 0; k < this.moves.length; k++){
-//            System.out.println("old="+this.moves[k]);
-//        }
+
 
         Richting tmp;
         while (j > i) {
@@ -47,11 +46,18 @@ public class PadImpl implements Pad {
             i++;
         }
 
-//        for(int k = 0; k < this.moves.length; k++){
-//            System.out.println("new="+this.moves[k]);
-//        }
 
-        return new PadImpl(this.moves);
+        ArrayList<Richting> temp = new ArrayList<>();
+
+        for(Richting direction : this.moves){
+            System.out.println("current=asdf"+direction);
+            System.out.println("current=asdf"+direction.omgekeerd());
+            temp.add(direction.omgekeerd());
+        }
+
+        Richting[] finalPath = temp.toArray(new Richting[temp.size()]);
+
+        return new PadImpl(finalPath);
     }
 
     @Override

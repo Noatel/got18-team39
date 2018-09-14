@@ -129,7 +129,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
                 //Reverse the array
                 Pad finalPath = reversePath.omgekeerd();
-                debug.debugPad(kaart, end, finalPath);
+                debug.debugPad(kaart, start, finalPath);
 
                 System.out.println("DONE");
                 System.out.println("amount" + finalPath.getTotaleTijd());
