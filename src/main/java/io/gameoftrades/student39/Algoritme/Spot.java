@@ -26,14 +26,7 @@ public class Spot {
         //Tutorial stuff maybe remove later
         this.f = 0.00;
         this.h = terrain.getCoordinaat().afstandTot(end);
-        this.g = 0;
-
-        //Check if it got any neighbors
-        this.neighbors = new ArrayList<Coordinaat>();
-    }
-
-    public void addNeighbors(Coordinaat coordinaat) {
-
+        this.g = terrain.getTerreinType().getBewegingspunten();
 
     }
 

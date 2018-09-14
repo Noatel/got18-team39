@@ -46,12 +46,8 @@ public class PadImpl implements Pad {
             i++;
         }
 
-
         ArrayList<Richting> temp = new ArrayList<>();
-
         for(Richting direction : this.moves){
-            System.out.println("current=asdf"+direction);
-            System.out.println("current=asdf"+direction.omgekeerd());
             temp.add(direction.omgekeerd());
         }
 

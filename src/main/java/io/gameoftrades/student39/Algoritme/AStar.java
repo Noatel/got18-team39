@@ -45,9 +45,6 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
 
         //Get the terrein and  the openSet with the first Spot
-//        System.out.print("startcoord=");
-//        System.out.println(start.toString());
-
         Terrein startTerrain = kaart.getTerreinOp(start);
         Spot startSpot = new Spot(startTerrain, start);
 
@@ -80,62 +77,37 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
             Coordinaat currentCoordinate = currentSpot.getCoordinate();
 
             // if current = goal
-//            System.out.println("End spot=" + endSpot.getCoordinate().toString());
-//            System.out.println("current spot=" + currentCoordinate.toString());
-
             if (currentCoordinate.equals(endSpot.getCoordinate())) {
-//                System.out.println("endCoord=" + endSpot.getCoordinate().toString() + " currentCoord=" + currentCoordinate.toString());
                 //Because we cant assign the size, we first going to make a arraylist
                 //After that a array because Richting[] expect a array
-
                 //Get the previous spot and override
                 Spot previousSpot = currentSpot;
 
                 //Get the first
-//                System.out.println("Start while currrentSPot.getPrevious() =" + previousSpot.getCoordinate().toString());
                 while (previousSpot.getPrevious() != null) {
-//                    System.out.println(previousSpot.getCoordinate().toString());
-//                    System.out.println(previousSpot.getPrevious().getCoordinate().toString());
-
                     Coordinaat lastSpot = previousSpot.getTerrain().getCoordinaat();
                     Coordinaat lastPreviousSpot = previousSpot.getPrevious().getTerrain().getCoordinaat();
 
+                    System.out.println(lastSpot);
                     Richting direction = Richting.tussen(lastSpot, lastPreviousSpot);
-
-//                    System.out.println("from=" + lastSpot.toString() + " to=" + lastPreviousSpot.toString());
-//                    System.out.println("direction=" + direction);
-//                    System.out.println("from=" + previousSpot.getTerrain().getTerreinType() + " to=" + previousSpot.getPrevious().getTerrain().getTerreinType());
 
                     route.add(direction);
 
                     //Change the previous spot
-                    System.out.println("coords=" + previousSpot.getCoordinate());
-
                     previousSpot = previousSpot.getPrevious();
                 }
-
-//              System.out.println("routesize(" + route.size() + ")");
-//              System.out.println("end while currrentSPot.getPrevious()");
 
                 //Creating a path, convert the arraylist to a array
                 Richting[] path = route.toArray(new Richting[route.size()]);
                 PadImpl reversePath = new PadImpl(path);
 
-                //Testing
-                for (Richting richting : path) {
-                    System.out.println("to-" + richting + " ");
-                }
-                //EndTesting
 
                 //Reverse the array
                 Pad finalPath = reversePath.omgekeerd();
                 debug.debugPad(kaart, start, finalPath);
 
-                System.out.println("DONE");
-                System.out.println("amount" + finalPath.getTotaleTijd());
 
                 //Got the path , return it
-                return finalPath;
             }
 
 
@@ -143,21 +115,23 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
             Richting[] directions = currentSpot.getTerrain().getMogelijkeRichtingen();
 
             for (Richting direction : directions) {
-                System.out.println("coords=" + currentSpot.getCoordinate().toString());
 
-                System.out.println(direction);
                 Terrein currentTerrein = kaart.kijk(currentSpot.getTerrain(), direction);
 
                 Spot tempSpot = new Spot(currentTerrein, end);
 
                 // if neighbor in closedSet
-                if (!this.containClosed(tempSpot)) {
+                if (!closedSet.contains(tempSpot)) {
 
                     // The distance from start to a neighbor
                     int tempGScore = currentSpot.getG() + 1;
-
-                    if (this.containOpen(tempSpot)) {
+                    if (openSet.contains(tempSpot)) {
+                        System.out.println("SCORE = "+ tempGScore+ "AND"+ tempSpot.getG());
+                        System.out.println(tempGScore < tempSpot.getG());
                         if (tempGScore < tempSpot.getG()) {
+                            System.out.println("===========================");
+                            System.out.println(tempGScore);
+                            System.out.println("===========================");
                             tempSpot.setG(tempGScore);
                         }
                     } else {
@@ -170,29 +144,33 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                     tempSpot.setF(tempSpot.getG() + tempSpot.getH());
                 }
             }
+
             //Remove from open, add to close
             openSet.remove(currentSpot);
             closedSet.add(currentSpot);
 
         }
+        //Creating a path, convert the arraylist to a array
+        Richting[] path = route.toArray(new Richting[route.size()]);
+        PadImpl reversePath = new PadImpl(path);
+
+
+        //Reverse the array
+        Pad finalPath = reversePath.omgekeerd();
+        debug.debugPad(kaart, start, finalPath);
+
+        System.out.println("DONE");
+        System.out.println("amount" + finalPath.getTotaleTijd());
 
         //Probaly never comes here
-        return null;
+        return finalPath;
+
     }
 
 
     @Override
     public String toString() {
         return "A* ";
-    }
-
-    //https://stackoverflow.com/questions/43451080/java-check-if-arraylistcars-contains-object
-    public boolean containClosed(Spot spot) {
-        return closedSet.contains(spot);
-    }
-
-    public boolean containOpen(Spot spot) {
-        return openSet.contains(spot);
     }
 }
 
