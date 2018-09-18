@@ -59,8 +59,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         //while openSet is not empty
         int lowestSpot = 0;
 
-        while (openSet.size() > 0) {
-
+        while (openSet.size() >= 1) {
             //current := the node in openSet having the lowest fScore[] value
             for (int i = 0; i < openSet.size(); i++) {
                 if (openSet.get(i).getF() < openSet.get(lowestSpot).getF()) {
@@ -68,13 +67,13 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                 }
             }
 
-            System.out.println("lowesSpot=" + lowestSpot);
 
             //Get the lowest f score spot in the arraylist
             //First get the coordinate
             //Second compare the coordinate to the end coordinate
             Spot currentSpot = openSet.get(lowestSpot);
             Coordinaat currentCoordinate = currentSpot.getCoordinate();
+
 
             // if current = goal
             if (currentCoordinate.equals(endSpot.getCoordinate())) {
@@ -98,43 +97,40 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                 }
 
                 //Creating a path, convert the arraylist to a array
-                Richting[] path = route.toArray(new Richting[route.size()]);
-                PadImpl reversePath = new PadImpl(path);
-
-
-                //Reverse the array
-                Pad finalPath = reversePath.omgekeerd();
-                debug.debugPad(kaart, start, finalPath);
-
-
                 //Got the path , return it
+                break;
             }
-
 
             // for each direction of current Spot
             Richting[] directions = currentSpot.getTerrain().getMogelijkeRichtingen();
 
+            //Remove from open, add to close
+            openSet.remove(currentSpot);
+            closedSet.add(currentSpot);
+
             for (Richting direction : directions) {
-
                 Terrein currentTerrein = kaart.kijk(currentSpot.getTerrain(), direction);
-
                 Spot tempSpot = new Spot(currentTerrein, end);
 
                 // if neighbor in closedSet
                 if (!closedSet.contains(tempSpot)) {
 
                     // The distance from start to a neighbor
-                    int tempGScore = currentSpot.getG() + 1;
+                    double tempGScore = currentSpot.getG() + 1;
+
+
+                    System.out.println("currentTempGScore" + tempGScore);
+                    System.out.println("pot.getG()" + tempSpot.getG());
+
+
                     if (openSet.contains(tempSpot)) {
-                        System.out.println("SCORE = "+ tempGScore+ "AND"+ tempSpot.getG());
-                        System.out.println(tempGScore < tempSpot.getG());
                         if (tempGScore < tempSpot.getG()) {
                             System.out.println("===========================");
                             System.out.println(tempGScore);
                             System.out.println("===========================");
                             tempSpot.setG(tempGScore);
                         }
-                    } else {
+                    } else{
                         tempSpot.setG(tempGScore);
                         openSet.add(tempSpot);
                     }
@@ -142,14 +138,11 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                     tempSpot.setH(tempSpot.getCoordinate().afstandTot(end));
                     tempSpot.setPrevious(currentSpot);
                     tempSpot.setF(tempSpot.getG() + tempSpot.getH());
+                    System.out.println("F="+tempSpot.getF());
                 }
             }
-
-            //Remove from open, add to close
-            openSet.remove(currentSpot);
-            closedSet.add(currentSpot);
-
         }
+
         //Creating a path, convert the arraylist to a array
         Richting[] path = route.toArray(new Richting[route.size()]);
         PadImpl reversePath = new PadImpl(path);
@@ -171,6 +164,17 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
     @Override
     public String toString() {
         return "A* ";
+    }
+
+    public boolean hasDuplicatesInArrayList(ArrayList<Spot> list) {
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i) == list.get(j)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
 

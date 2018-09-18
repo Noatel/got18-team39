@@ -12,7 +12,7 @@ public class Spot {
     private Terrein terrain;
 
     private double f;
-    private int g;
+    private double g;
     private double h;
     private Spot previous = null;
     private ArrayList<Coordinaat> neighbors;
@@ -55,11 +55,11 @@ public class Spot {
         this.f = f;
     }
 
-    public int getG() {
+    public double getG() {
         return g;
     }
 
-    public void setG(int g) {
+    public void setG(double g) {
         this.g = g;
     }
 
