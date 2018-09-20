@@ -154,8 +154,21 @@ public class WereldLaderImpl implements WereldLader {
         String[] splitCity = cityData.split(",");
 
         //We need to -1 because the map begins at 0,0 instead of 1,1
-        Integer coordX = Integer.parseInt(splitCity[0]) - 1;
-        Integer coordY = Integer.parseInt(splitCity[1]) - 1;
+        Integer coordX;
+        Integer coordY;
+
+        if(Integer.parseInt(splitCity[0]) > 1){
+            coordX = Integer.parseInt(splitCity[0]) - 1;
+        } else {
+            coordX = Integer.parseInt(splitCity[0]);
+        }
+
+        if(Integer.parseInt(splitCity[1]) > 1){
+            coordY = Integer.parseInt(splitCity[1]) - 1;
+        } else {
+            coordY = Integer.parseInt(splitCity[1]);
+        }
+
 
         //Create the coordinate
         Coordinaat cityCoordinate = Coordinaat.op(coordX, coordY);

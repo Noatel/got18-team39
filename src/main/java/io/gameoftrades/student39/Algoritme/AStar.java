@@ -59,11 +59,12 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         //while openSet is not empty
         int lowestSpot = 0;
 
-        while (openSet.size() >= 1) {
+        while (openSet.size() > 0) {
             //current := the node in openSet having the lowest fScore[] value
             for (int i = 0; i < openSet.size(); i++) {
                 if (openSet.get(i).getF() < openSet.get(lowestSpot).getF()) {
                     lowestSpot = i;
+//                    openSet.remove(lowestSpot);
                 }
             }
 
@@ -72,7 +73,10 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
             //First get the coordinate
             //Second compare the coordinate to the end coordinate
             Spot currentSpot = openSet.get(lowestSpot);
+            closedSet.add(currentSpot);
+
             Coordinaat currentCoordinate = currentSpot.getCoordinate();
+
 
 
             // if current = goal
@@ -95,7 +99,6 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                     //Change the previous spot
                     previousSpot = previousSpot.getPrevious();
                 }
-
                 //Creating a path, convert the arraylist to a array
                 //Got the path , return it
                 break;
@@ -104,9 +107,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
             // for each direction of current Spot
             Richting[] directions = currentSpot.getTerrain().getMogelijkeRichtingen();
 
-            //Remove from open, add to close
-            openSet.remove(currentSpot);
-            closedSet.add(currentSpot);
+
 
             for (Richting direction : directions) {
                 Terrein currentTerrein = kaart.kijk(currentSpot.getTerrain(), direction);
@@ -118,12 +119,11 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                     // The distance from start to a neighbor
                     double tempGScore = currentSpot.getG() + 1;
 
-
                     System.out.println("currentTempGScore" + tempGScore);
                     System.out.println("pot.getG()" + tempSpot.getG());
 
 
-                    if (openSet.contains(tempSpot)) {
+                    if (openSet.contains(tempSpot) && closedSet.contains(tempSpot)) {
                         if (tempGScore < tempSpot.getG()) {
                             System.out.println("===========================");
                             System.out.println(tempGScore);
@@ -141,7 +141,12 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                     System.out.println("F="+tempSpot.getF());
                 }
             }
-        }
+
+
+            //Remove from open, add to close
+            openSet.remove(currentSpot);
+
+        }//End while
 
         //Creating a path, convert the arraylist to a array
         Richting[] path = route.toArray(new Richting[route.size()]);
