@@ -14,10 +14,9 @@ import java.util.Scanner;
 public class AStar implements SnelstePadAlgoritme, Debuggable {
 
     private Debugger debug = new DummyDebugger();
-    private ArrayList<Spot> openSet = new ArrayList<>();
-    private ArrayList<Spot> closedSet = new ArrayList<>();
+    private ArrayList<Spot> openSet = new ArrayList<Spot>();
+    private ArrayList<Spot> closedSet = new ArrayList<Spot>();
     private ArrayList<Richting> route = new ArrayList<>();
-
 
     @Override
     public void setDebugger(Debugger debugger) {
@@ -25,8 +24,6 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
     }
 
     public AStar() {
-        //Creating something
-
     }
 
     public Pad bereken(Kaart kaart, Coordinaat start, Coordinaat end) {
@@ -34,14 +31,9 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         Testing.testingMap(kaart);
         //Remove testing
 
-
-        System.out.println("currentXY=" + start.toString() + "-" + end.toString());
-
-
         //clear the open and close set
         openSet.clear();
         closedSet.clear();
-        route.clear();
 
 
         //Get the terrein and  the openSet with the first Spot
@@ -54,17 +46,24 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         Terrein endTerrain = kaart.getTerreinOp(end);
         Spot endSpot = new Spot(endTerrain, end);
 
+        //Clear the route if there was a previous
+        route.clear();
 
-        int k = 0;
-        //while openSet is not empty
         int lowestSpot = 0;
-
-        while (openSet.size() > 0) {
+        //while openSet is not empty
+        while (openSet.size() != 0) {
             //current := the node in openSet having the lowest fScore[] value
-            for (int i = 0; i < openSet.size(); i++) {
+            for (int i = 1; i < openSet.size(); i++) {
                 if (openSet.get(i).getF() < openSet.get(lowestSpot).getF()) {
                     lowestSpot = i;
-//                    openSet.remove(lowestSpot);
+                }
+
+                //If equal
+                if (openSet.get(i).getF() == openSet.get(lowestSpot).getF()) {
+                    //Prefer to explore options with longer known paths (closer to goal)
+                    if (openSet.get(i).getG() > openSet.get(lowestSpot).getG()) {
+                        lowestSpot = i;
+                    }
                 }
             }
 
@@ -73,78 +72,70 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
             //First get the coordinate
             //Second compare the coordinate to the end coordinate
             Spot currentSpot = openSet.get(lowestSpot);
+
+
+            openSet.remove(currentSpot);
             closedSet.add(currentSpot);
 
+
             Coordinaat currentCoordinate = currentSpot.getCoordinate();
-
-
 
             // if current = goal
             if (currentCoordinate.equals(endSpot.getCoordinate())) {
                 //Because we cant assign the size, we first going to make a arraylist
                 //After that a array because Richting[] expect a array
-                //Get the previous spot and override
-                Spot previousSpot = currentSpot;
 
-                //Get the first
-                while (previousSpot.getPrevious() != null) {
-                    Coordinaat lastSpot = previousSpot.getTerrain().getCoordinaat();
-                    Coordinaat lastPreviousSpot = previousSpot.getPrevious().getTerrain().getCoordinaat();
+                System.out.println(currentSpot.toString());
+
+                //Check if the currentSpot got previous
+                while (currentSpot.getPrevious() != null) {
+                    Coordinaat lastSpot = currentSpot.getTerrain().getCoordinaat();
+                    Coordinaat lastPreviousSpot = currentSpot.getPrevious().getTerrain().getCoordinaat();
 
                     System.out.println(lastSpot);
                     Richting direction = Richting.tussen(lastSpot, lastPreviousSpot);
+                    System.out.println("Directions from to = " + direction.toString());
 
+                    TerreinType terreinType = currentSpot.getPrevious().getTerrain().getTerreinType();
+                    double gCost = currentSpot.getG() + terreinType.getBewegingspunten();
+                    System.out.println(gCost);
+
+                    currentSpot.setG(gCost);
                     route.add(direction);
 
                     //Change the previous spot
-                    previousSpot = previousSpot.getPrevious();
+                    currentSpot = currentSpot.getPrevious();
                 }
+
                 //Creating a path, convert the arraylist to a array
                 //Got the path , return it
                 break;
+
             }
 
             // for each direction of current Spot
             Richting[] directions = currentSpot.getTerrain().getMogelijkeRichtingen();
 
-
-
             for (Richting direction : directions) {
-                Terrein currentTerrein = kaart.kijk(currentSpot.getTerrain(), direction);
-                Spot tempSpot = new Spot(currentTerrein, end);
 
-                // if neighbor in closedSet
-                if (!closedSet.contains(tempSpot)) {
+                //https://stackoverflow.com/questions/11260102/declaring-object-as-final-in-java
+                final Terrein currentTerrein = kaart.kijk(currentSpot.getTerrain(), direction);
+                final Spot tempSpot = new Spot(currentTerrein, end);
 
-                    // The distance from start to a neighbor
-                    double tempGScore = currentSpot.getG() + 1;
+                if(closedSet.contains(tempSpot)){
+                    continue;
+                }
 
-                    System.out.println("currentTempGScore" + tempGScore);
-                    System.out.println("pot.getG()" + tempSpot.getG());
+                double gScore = tempSpot.getG() + currentSpot.getCoordinate().afstandTot(tempSpot.getCoordinate());
 
-
-                    if (openSet.contains(tempSpot) && closedSet.contains(tempSpot)) {
-                        if (tempGScore < tempSpot.getG()) {
-                            System.out.println("===========================");
-                            System.out.println(tempGScore);
-                            System.out.println("===========================");
-                            tempSpot.setG(tempGScore);
-                        }
-                    } else{
-                        tempSpot.setG(tempGScore);
-                        openSet.add(tempSpot);
-                    }
-
-                    tempSpot.setH(tempSpot.getCoordinate().afstandTot(end));
-                    tempSpot.setPrevious(currentSpot);
-                    tempSpot.setF(tempSpot.getG() + tempSpot.getH());
-                    System.out.println("F="+tempSpot.getF());
+                System.out.println("GScore="+gScore);
+                tempSpot.setG(gScore);
+                if (!openSet.contains(tempSpot)) {
+                    tempSpot.setPrevious(tempSpot.getPrevious());
+                    System.out.println("toegevoegd" + tempSpot.getCoordinate().toString());
+                    openSet.add(tempSpot);
                 }
             }
-
-
-            //Remove from open, add to close
-            openSet.remove(currentSpot);
 
         }//End while
 
@@ -152,17 +143,15 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         Richting[] path = route.toArray(new Richting[route.size()]);
         PadImpl reversePath = new PadImpl(path);
 
+        System.out.println("Route size = " + route.size());
 
         //Reverse the array
         Pad finalPath = reversePath.omgekeerd();
         debug.debugPad(kaart, start, finalPath);
 
-        System.out.println("DONE");
-        System.out.println("amount" + finalPath.getTotaleTijd());
 
         //Probaly never comes here
         return finalPath;
-
     }
 
 
@@ -171,15 +160,4 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         return "A* ";
     }
 
-    public boolean hasDuplicatesInArrayList(ArrayList<Spot> list) {
-        for (int i = 0; i < list.size(); i++) {
-            for (int j = i + 1; j < list.size(); j++) {
-                if (list.get(i) == list.get(j)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 }
-

@@ -15,7 +15,7 @@ public class Spot {
     private double g;
     private double h;
     private Spot previous = null;
-    private ArrayList<Coordinaat> neighbors;
+
 
 
     public Spot(Terrein terrain, Coordinaat end) {
@@ -24,9 +24,16 @@ public class Spot {
         this.terrain = terrain;
 
         //Tutorial stuff maybe remove later
-        this.f = 0.00;
         this.h = terrain.getCoordinaat().afstandTot(end);
-        this.g = terrain.getTerreinType().getBewegingspunten();
+
+        if(previous != null){
+            this.g = previous.getG() + terrain.getTerreinType().getBewegingspunten();
+        } else {
+            this.g = terrain.getTerreinType().getBewegingspunten();
+        }
+
+        this.f = this.h + this.g;
+
 
     }
 
@@ -77,4 +84,14 @@ public class Spot {
     }
 
 
+    //https://stackoverflow.com/questions/45616794/arraylist-contains-method-not-work-as-i-would-except
+    //Because the arraylist make use of the equals function we need to edit it
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Spot)){
+            return false;
+        }
+        Spot other = (Spot) o;
+        return other.coordinate.equals(this.coordinate);
+    }
 }

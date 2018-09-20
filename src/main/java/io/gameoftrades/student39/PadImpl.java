@@ -28,13 +28,12 @@ public class PadImpl implements Pad {
     }
 
     @Override
-    public Pad omgekeerd() {
+    public PadImpl omgekeerd() {
         //Reverse path
         //http://www.java2s.com/Tutorial/Java/0140__Collections/Reversestheorderofthegivenobjectarray.htm
 
         int i = 0;
         int j = this.moves.length - 1;
-
 
 
         Richting tmp;
