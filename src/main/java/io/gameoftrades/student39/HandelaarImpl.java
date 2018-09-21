@@ -11,6 +11,7 @@ import io.gameoftrades.model.kaart.Pad;
 import io.gameoftrades.model.kaart.Stad;
 import io.gameoftrades.model.lader.WereldLader;
 import io.gameoftrades.student39.Algoritme.AStar;
+import io.gameoftrades.student39.Algoritme.StedenAlgoritme;
 
 /**
  * Welkom bij Game of Trades!
@@ -53,7 +54,9 @@ public class HandelaarImpl implements Handelaar {
     @Override
     public StedenTourAlgoritme nieuwStedenTourAlgoritme() {
         // TODO Auto-generated method stub
-        return null;
+        
+        //Load in the algorithm
+        return new StedenAlgoritme();
     }
 
     /**
