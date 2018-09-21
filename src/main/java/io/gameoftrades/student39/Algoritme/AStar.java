@@ -57,26 +57,26 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                 lowestSpot = lowestSpot - 1;
             }
 
+            //Get the lowest f score spot in the arraylist
+            //First get the coordinate
+            //Second compare the coordinate to the end coordinate
+            Spot currentSpot = openSet.get(lowestSpot);
+
             //current := the node in openSet having the lowest fScore[] value
             for (int i = 0; i < openSet.size(); i++) {
 
                 Spot tempSpot = openSet.get(i);
                 Spot lastSpot = openSet.get(lowestSpot);
 
-                if (tempSpot.getF() < lastSpot.getF()) {
+                if (currentSpot.getF() >= tempSpot.getF()) {
                     lowestSpot = i;
                 }
-
             }
 
-            //Get the lowest f score spot in the arraylist
-            //First get the coordinate
-            //Second compare the coordinate to the end coordinate
-            Spot currentSpot = openSet.get(lowestSpot);
+
 
             openSet.remove(currentSpot);
             closedSet.add(currentSpot);
-
 
             Coordinaat currentCoordinate = currentSpot.getCoordinate();
 
@@ -93,17 +93,12 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
                     Richting direction = Richting.tussen(lastSpot, lastPreviousSpot);
 
-                    TerreinType terreinType = currentSpot.getTerrain().getTerreinType();
-                    double gCost = currentSpot.getG() + terreinType.getBewegingspunten();
-                    System.out.println(gCost);
-
-                    currentSpot.setG(gCost);
+                    //Add the direction to the route
                     route.add(direction);
 
                     //Change the previous spot
                     currentSpot = currentSpot.getPrevious();
                 }
-
             }
 
             // for each direction of current Spot
@@ -111,27 +106,20 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
             for (Richting direction : directions) {
 
-                Terrein currentTerrein = kaart.kijk(currentSpot.getTerrain(), direction);
-                Spot tempSpot = new Spot(currentTerrein, end);
+                //Look the current terrain
+                Terrein currentTerrain = kaart.kijk(currentSpot.getTerrain(), direction);
+                Spot tempSpot = new Spot(currentTerrain, end);
 
                 if (!closedSet.contains(tempSpot)) {
-
-                    double gScore = currentSpot.getG() + currentSpot.getCoordinate().afstandTot(tempSpot.getCoordinate());
                     double HScore = tempSpot.getCoordinate().afstandTot(end);
                     double FScore = tempSpot.getG() + HScore;
 
                     if (!openSet.contains(tempSpot)) {
                         openSet.add(tempSpot);
-                    } else if(gScore >= tempSpot.getG()){
-                        continue;
                     }
-
-                    //Assign new G score
-                    tempSpot.setG(gScore);
 
                     //Assign new F score
                     tempSpot.setPrevious(currentSpot);
-                    tempSpot.setF(FScore);
                 }
 
             }
@@ -144,7 +132,6 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
         //Reverse the array
         Pad finalPath = reversePath.omgekeerd();
-
         debug.debugPad(kaart, start, finalPath);
 
         //Probaly never comes here

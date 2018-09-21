@@ -8,7 +8,6 @@ import io.gameoftrades.model.markt.HandelType;
 import io.gameoftrades.model.markt.Handelswaar;
 import io.gameoftrades.model.markt.Markt;
 
-import java.io.FileNotFoundException;
 import java.util.*;
 
 public class WereldLaderImpl implements WereldLader {
@@ -16,12 +15,12 @@ public class WereldLaderImpl implements WereldLader {
 
     //The world & coordinate
     private int[] coordinate = new int[2];
-    private Kaart kaart;
+    private Kaart map;
 
     //Cities and trade
-    private ArrayList<Stad> steden = new ArrayList<Stad>();
+    private ArrayList<Stad> cities = new ArrayList<Stad>();
     private ArrayList<Handel> trades = new ArrayList<Handel>();
-    private ArrayList<Terrein> terreins = new ArrayList<Terrein>();
+    private ArrayList<Terrein> terrains = new ArrayList<Terrein>();
 
 
     @Override
@@ -59,39 +58,36 @@ public class WereldLaderImpl implements WereldLader {
                 coordinate[1] = Integer.parseInt(splitCoordinates[1]);
 
                 //Create the map, width - height
-                kaart = new Kaart(coordinate[0], coordinate[1]);
+                map = new Kaart(coordinate[0], coordinate[1]);
             }
 
             //Kaart output:
 
-            if (i <= kaart.getHoogte() && i > 0) {
+            if (i <= map.getHoogte() && i > 0) {
                 if (!isInteger(value)) {
                     //The map must be the same width as given
-                    if (value.length() == kaart.getBreedte()) {
+                    if (value.length() == map.getBreedte()) {
                         //Foreach charachter in the string
-                        Integer coordY = i - 1;
-                        Integer coordX = 0;
-
-
+                        Integer coordinateY = i - 1;
+                        Integer coordinateX = 0;
 
                         for (char c : value.toCharArray()) {
-                            Coordinaat coordinaat = Coordinaat.op(coordX, coordY);
+                            Coordinaat coordinate = Coordinaat.op(coordinateX, coordinateY);
 
-                            TerreinType terreinType = TerreinType.fromLetter(c);
-                            Terrein terrein = new Terrein(kaart, coordinaat, terreinType);
+                            TerreinType terrainType = TerreinType.fromLetter(c);
+                            Terrein terrain = new Terrein(map, coordinate, terrainType);
 
-                            terreins.add(terrein);
-
-                            coordX++;
+                            terrains.add(terrain);
+                            coordinateX++;
                         }
 
                     } else {
                         //ERROR HANDLING
-                        throw new IllegalArgumentException("De kaart is te breed");
+                        throw new IllegalArgumentException("the map is too wide");
                     }
                 } else {
                     //ERROR HANDLING
-                    throw new IllegalArgumentException("De kaart is te klein");
+                    throw new IllegalArgumentException("the map is too small");
                 }
             }
 
@@ -142,7 +138,7 @@ public class WereldLaderImpl implements WereldLader {
         Markt markets = new Markt(trades);
 
         //Create the world with the variables
-        Wereld world = new Wereld(kaart, steden, markets);
+        Wereld world = new Wereld(map, cities, markets);
 
 
         return world;
@@ -174,55 +170,56 @@ public class WereldLaderImpl implements WereldLader {
 
 
         if (coordX == 0 && coordY == 0) {
-            throw new IllegalArgumentException("Stad staat buiten de map");
+            throw new IllegalArgumentException("The city is standing outside the map");
         } else {
             coordX--;
             coordY--;
         }
 
-        if (!kaart.isOpKaart(cityCoordinate)) {
-            throw new IllegalArgumentException("Stad staat buiten de map");
+        if (!map.isOpKaart(cityCoordinate)) {
+            throw new IllegalArgumentException("The city is standing outside the map");
         }
 
 
         //The city that we define needs to be between the coordinates
         //Still not working optimal
 
-        if (coordX >= kaart.getBreedte()) {
-            throw new IllegalArgumentException("Stad staat buiten de map, breedte");
+        if (coordX >= map.getBreedte()) {
+            throw new IllegalArgumentException("The city is standing outside the map, coordinates are too wide");
         }
-        if (coordY >= kaart.getHoogte()) {
-            throw new IllegalArgumentException("Stad staat buiten de map, hoogte");
+        if (coordY >= map.getHoogte()) {
+            throw new IllegalArgumentException("The city is standing outside the map, coordinates are too high");
         }
+
 
         String cityName = splitCity[2];
 
         //Create the city
-        Stad stad = new Stad(cityCoordinate, cityName);
+        Stad city = new Stad(cityCoordinate, cityName);
 
         //Add the city to the arrayList
-        steden.add(stad);
+        cities.add(city);
     }
 
     public void createMarket(String marktData) {
         String[] splitMarkt = marktData.split(",");
 
         String cityName = splitMarkt[0];
-        String VraagBod = splitMarkt[1];
+        String requestBid = splitMarkt[1];
         String product = splitMarkt[2];
-        Integer prijs = Integer.parseInt(splitMarkt[3]);
+        Integer price = Integer.parseInt(splitMarkt[3]);
 
-        Handelswaar handelswaar = new Handelswaar(product);
-        HandelType type = HandelType.valueOf(VraagBod);
+        Handelswaar merchandise = new Handelswaar(product);
+        HandelType type = HandelType.valueOf(requestBid);
 
         //Foreach city we got
-        for (Stad stad : steden) {
+        for (Stad stad : cities) {
 
             //If the city name is the same
             if (stad.getNaam().equals(cityName)) {
                 //Add handel
-                Handel handel = new Handel(stad, type, handelswaar, prijs);
-                trades.add(handel);
+                Handel trade = new Handel(stad, type, merchandise, price);
+                trades.add(trade);
             }
         }
     }

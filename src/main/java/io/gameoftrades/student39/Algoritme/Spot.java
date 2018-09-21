@@ -13,8 +13,8 @@ public class Spot {
 
     private double f;
     private double g;
-   private Spot previous = null;
-
+    private double h;
+    private Spot previous = null;
 
 
     public Spot(Terrein terrain, Coordinaat end) {
@@ -24,12 +24,13 @@ public class Spot {
 
 
         //If it got a previous add with current
-        if(previous != null){
+        if (previous != null) {
             this.g = previous.getG() + terrain.getTerreinType().getBewegingspunten();
         } else {
             this.g = terrain.getTerreinType().getBewegingspunten();
         }
 
+        this.h = this.coordinate.afstandTot(end);
     }
 
     public void setPrevious(Spot previous) {
@@ -49,7 +50,11 @@ public class Spot {
     }
 
     public double getF() {
-        return f;
+
+        double hCost = getH();
+        double gCost = getG();
+
+        return hCost + gCost;
     }
 
     public void setF(double f) {
@@ -64,6 +69,23 @@ public class Spot {
         this.g = g;
     }
 
+    public void setCoordinate(Coordinaat coordinate) {
+        this.coordinate = coordinate;
+    }
+
+    public void setTerrain(Terrein terrain) {
+        this.terrain = terrain;
+    }
+
+    public double getH() {
+        return h;
+    }
+
+    public void setH(double h) {
+        this.h = h;
+    }
+
+
     @Override
     public String toString() {
         return "[" + this.coordinate.getX() + ", " + this.coordinate.getY() + "]";
@@ -71,11 +93,12 @@ public class Spot {
 
 
     //https://stackoverflow.com/questions/45616794/arraylist-contains-method-not-work-as-i-would-except
+
     //Because the arraylist, contains make use of the equals function we need to edit it
     //So we check if a object is equal to the other spot
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Spot)){
+        if (!(o instanceof Spot)) {
             return false;
         }
         Spot other = (Spot) o;
