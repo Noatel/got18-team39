@@ -17,7 +17,6 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
     private ArrayList<Spot> openSet = new ArrayList<Spot>();
     private ArrayList<Spot> closedSet = new ArrayList<Spot>();
     private ArrayList<Richting> route = new ArrayList<>();
-    private Spot startSpot = null;
 
     @Override
     public void setDebugger(Debugger debugger) {
@@ -39,7 +38,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
         //Get the terrein and  the openSet with the first Spot
         Terrein startTerrain = kaart.getTerreinOp(start);
-        startSpot = new Spot(startTerrain, start);
+        Spot startSpot = new Spot(startTerrain, start);
 
         openSet.add(startSpot);
 
@@ -51,29 +50,29 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         route.clear();
 
         int lowestSpot = 0;
+
         //while openSet is not empty
         while (openSet.size() != 0) {
+            if (lowestSpot > 0) {
+                lowestSpot = lowestSpot - 1;
+            }
+
             //current := the node in openSet having the lowest fScore[] value
-            for (int i = 1; i < openSet.size(); i++) {
-                if (openSet.get(i).getF() < openSet.get(lowestSpot).getF()) {
+            for (int i = 0; i < openSet.size(); i++) {
+
+                Spot tempSpot = openSet.get(i);
+                Spot lastSpot = openSet.get(lowestSpot);
+
+                if (tempSpot.getF() < lastSpot.getF()) {
                     lowestSpot = i;
                 }
 
-                //If equal
-                if (openSet.get(i).getF() == openSet.get(lowestSpot).getF()) {
-                    //Prefer to explore options with longer known paths (closer to goal)
-                    if (openSet.get(i).getG() > openSet.get(lowestSpot).getG()) {
-                        lowestSpot = i;
-                    }
-                }
             }
-
 
             //Get the lowest f score spot in the arraylist
             //First get the coordinate
             //Second compare the coordinate to the end coordinate
             Spot currentSpot = openSet.get(lowestSpot);
-
 
             openSet.remove(currentSpot);
             closedSet.add(currentSpot);
@@ -82,24 +81,19 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
             Coordinaat currentCoordinate = currentSpot.getCoordinate();
 
             // if current = goal
-//            System.out.println("current="+currentCoordinate.toString());
-//            System.out.println("end="+endSpot.getCoordinate().toString());
             if (currentCoordinate.equals(endSpot.getCoordinate())) {
                 //Because we cant assign the size, we first going to make a arraylist
                 //After that a array because Richting[] expect a array
 
-                System.out.println(currentSpot.toString());
-
                 //Check if the currentSpot got previous
                 while (currentSpot.getPrevious() != null) {
+
                     Coordinaat lastSpot = currentSpot.getTerrain().getCoordinaat();
                     Coordinaat lastPreviousSpot = currentSpot.getPrevious().getTerrain().getCoordinaat();
 
-                    System.out.println(lastSpot);
                     Richting direction = Richting.tussen(lastSpot, lastPreviousSpot);
-                    System.out.println("Directions from to = " + direction.toString());
 
-                    TerreinType terreinType = currentSpot.getPrevious().getTerrain().getTerreinType();
+                    TerreinType terreinType = currentSpot.getTerrain().getTerreinType();
                     double gCost = currentSpot.getG() + terreinType.getBewegingspunten();
                     System.out.println(gCost);
 
@@ -110,33 +104,34 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                     currentSpot = currentSpot.getPrevious();
                 }
 
-                //Creating a path, convert the arraylist to a array
-                //Got the path , return it
-                break;
             }
 
             // for each direction of current Spot
             Richting[] directions = currentSpot.getTerrain().getMogelijkeRichtingen();
 
             for (Richting direction : directions) {
-                //https://stackoverflow.com/questions/11260102/declaring-object-as-final-in-java
-                final Terrein currentTerrein = kaart.kijk(currentSpot.getTerrain(), direction);
-                final Spot tempSpot = new Spot(currentTerrein, end);
 
-                if (closedSet.contains(tempSpot)) {
-                    continue;
-                }
+                Terrein currentTerrein = kaart.kijk(currentSpot.getTerrain(), direction);
+                Spot tempSpot = new Spot(currentTerrein, end);
 
-                double gScore = tempSpot.getG() + currentSpot.getCoordinate().afstandTot(tempSpot.getCoordinate());
+                if (!closedSet.contains(tempSpot)) {
 
-                System.out.println("GScore=" + gScore);
-                tempSpot.setG(gScore);
-                if (!openSet.contains(tempSpot)) {
-                    System.out.println(tempSpot.getPrevious());
+                    double gScore = currentSpot.getG() + currentSpot.getCoordinate().afstandTot(tempSpot.getCoordinate());
+                    double HScore = tempSpot.getCoordinate().afstandTot(end);
+                    double FScore = tempSpot.getG() + HScore;
+
+                    if (!openSet.contains(tempSpot)) {
+                        openSet.add(tempSpot);
+                    } else if(gScore >= tempSpot.getG()){
+                        continue;
+                    }
+
+                    //Assign new G score
+                    tempSpot.setG(gScore);
+
+                    //Assign new F score
                     tempSpot.setPrevious(currentSpot);
-                    openSet.add(tempSpot);
-                } else if (gScore >= tempSpot.getG()) {
-                    continue;
+                    tempSpot.setF(FScore);
                 }
 
             }
@@ -147,12 +142,10 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         Richting[] path = route.toArray(new Richting[route.size()]);
         PadImpl reversePath = new PadImpl(path);
 
-        System.out.println("Route size = " + route.size());
-
         //Reverse the array
         Pad finalPath = reversePath.omgekeerd();
-        debug.debugPad(kaart, start, finalPath);
 
+        debug.debugPad(kaart, start, finalPath);
 
         //Probaly never comes here
         return finalPath;

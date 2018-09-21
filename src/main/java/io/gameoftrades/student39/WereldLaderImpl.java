@@ -75,7 +75,6 @@ public class WereldLaderImpl implements WereldLader {
 
 
                         for (char c : value.toCharArray()) {
-//                            System.out.println("X("+coordX+")  Y("+coordY+")");
                             Coordinaat coordinaat = Coordinaat.op(coordX, coordY);
 
                             TerreinType terreinType = TerreinType.fromLetter(c);

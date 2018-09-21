@@ -11,8 +11,7 @@ import io.gameoftrades.student39.HandelaarImpl;
 public class StudentUI {
 
 	public static void main(String[] args)  {
-		MainGui.toon(new HandelaarImpl(), TileSet.T32, "/kaarten/voorbeeld-kaart.txt");
-//		MainGui.toon(new HandelaarImpl(), TileSet.T32, "/kaarten/voorbeeld-kaart.txt");
+		MainGui.toon(new HandelaarImpl(), TileSet.T32, "/kaarten/westeros-kaart.txt");
 	}
 	
 }
