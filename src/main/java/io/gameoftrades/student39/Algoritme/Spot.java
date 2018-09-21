@@ -92,6 +92,7 @@ public class Spot {
             return false;
         }
         Spot other = (Spot) o;
+
         return other.coordinate.equals(this.coordinate);
     }
 }

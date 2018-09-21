@@ -17,6 +17,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
     private ArrayList<Spot> openSet = new ArrayList<Spot>();
     private ArrayList<Spot> closedSet = new ArrayList<Spot>();
     private ArrayList<Richting> route = new ArrayList<>();
+    private Spot startSpot = null;
 
     @Override
     public void setDebugger(Debugger debugger) {
@@ -38,7 +39,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
         //Get the terrein and  the openSet with the first Spot
         Terrein startTerrain = kaart.getTerreinOp(start);
-        Spot startSpot = new Spot(startTerrain, start);
+        startSpot = new Spot(startTerrain, start);
 
         openSet.add(startSpot);
 
@@ -81,6 +82,8 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
             Coordinaat currentCoordinate = currentSpot.getCoordinate();
 
             // if current = goal
+//            System.out.println("current="+currentCoordinate.toString());
+//            System.out.println("end="+endSpot.getCoordinate().toString());
             if (currentCoordinate.equals(endSpot.getCoordinate())) {
                 //Because we cant assign the size, we first going to make a arraylist
                 //After that a array because Richting[] expect a array
@@ -110,31 +113,32 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                 //Creating a path, convert the arraylist to a array
                 //Got the path , return it
                 break;
-
             }
 
             // for each direction of current Spot
             Richting[] directions = currentSpot.getTerrain().getMogelijkeRichtingen();
 
             for (Richting direction : directions) {
-
                 //https://stackoverflow.com/questions/11260102/declaring-object-as-final-in-java
                 final Terrein currentTerrein = kaart.kijk(currentSpot.getTerrain(), direction);
                 final Spot tempSpot = new Spot(currentTerrein, end);
 
-                if(closedSet.contains(tempSpot)){
+                if (closedSet.contains(tempSpot)) {
                     continue;
                 }
 
                 double gScore = tempSpot.getG() + currentSpot.getCoordinate().afstandTot(tempSpot.getCoordinate());
 
-                System.out.println("GScore="+gScore);
+                System.out.println("GScore=" + gScore);
                 tempSpot.setG(gScore);
                 if (!openSet.contains(tempSpot)) {
-                    tempSpot.setPrevious(tempSpot.getPrevious());
-                    System.out.println("toegevoegd" + tempSpot.getCoordinate().toString());
+                    System.out.println(tempSpot.getPrevious());
+                    tempSpot.setPrevious(currentSpot);
                     openSet.add(tempSpot);
+                } else if (gScore >= tempSpot.getG()) {
+                    continue;
                 }
+
             }
 
         }//End while
