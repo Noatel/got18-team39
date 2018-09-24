@@ -31,6 +31,7 @@ public class Spot {
         }
 
         this.h = this.coordinate.afstandTot(end);
+        this.f = this.getG() + this.getCoordinate().afstandTot(end);
     }
 
     public void setPrevious(Spot previous) {
@@ -51,10 +52,7 @@ public class Spot {
 
     public double getF() {
 
-        double hCost = getH();
-        double gCost = getG();
-
-        return hCost + gCost;
+        return f;
     }
 
     public void setF(double f) {

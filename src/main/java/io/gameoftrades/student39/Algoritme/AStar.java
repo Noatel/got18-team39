@@ -9,14 +9,16 @@ import io.gameoftrades.student39.PadImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 public class AStar implements SnelstePadAlgoritme, Debuggable {
 
     private Debugger debug = new DummyDebugger();
-    private ArrayList<Spot> openSet = new ArrayList<Spot>();
-    private ArrayList<Spot> closedSet = new ArrayList<Spot>();
+    private ArrayList<Spot> openSet = new ArrayList<>();
+    private ArrayList<Spot> closedSet = new ArrayList<>();
     private ArrayList<Richting> route = new ArrayList<>();
+    private Spot currentSpot = null;
 
     @Override
     public void setDebugger(Debugger debugger) {
@@ -38,7 +40,10 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
         //Get the terrein and  the openSet with the first Spot
         Terrein startTerrain = kaart.getTerreinOp(start);
-        Spot startSpot = new Spot(startTerrain, start);
+        Spot startSpot = new Spot(startTerrain, end);
+
+        //Set the F Score
+        startSpot.setF(startSpot.getG() + startSpot.getCoordinate().afstandTot(end));
 
         openSet.add(startSpot);
 
@@ -47,33 +52,26 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         Spot endSpot = new Spot(endTerrain, end);
 
         //Clear the route if there was a previous
-        route.clear();
 
         int lowestSpot = 0;
 
         //while openSet is not empty
         while (openSet.size() != 0) {
-            if (lowestSpot > 0) {
-                lowestSpot = lowestSpot - 1;
-            }
+            //Check if the lowestSpot is heiger than 0
 
             //Get the lowest f score spot in the arraylist
             //First get the coordinate
             //Second compare the coordinate to the end coordinate
-            Spot currentSpot = openSet.get(lowestSpot);
 
             //current := the node in openSet having the lowest fScore[] value
-            for (int i = 0; i < openSet.size(); i++) {
-
-                Spot tempSpot = openSet.get(i);
-                Spot lastSpot = openSet.get(lowestSpot);
-
-                if (currentSpot.getF() >= tempSpot.getF()) {
+            
+            for (int i = 0; i <= openSet.size(); i++) {
+                if (openSet.get(i).getF() < openSet.get(lowestSpot).getF()) {
                     lowestSpot = i;
                 }
             }
 
-
+            currentSpot = openSet.get(lowestSpot);
 
             openSet.remove(currentSpot);
             closedSet.add(currentSpot);
@@ -81,7 +79,10 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
             Coordinaat currentCoordinate = currentSpot.getCoordinate();
 
             // if current = goal
+
             if (currentCoordinate.equals(endSpot.getCoordinate())) {
+                route.clear();
+
                 //Because we cant assign the size, we first going to make a arraylist
                 //After that a array because Richting[] expect a array
 
@@ -99,31 +100,37 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
                     //Change the previous spot
                     currentSpot = currentSpot.getPrevious();
                 }
+
+                //Got the best path return
+                break;
             }
+
 
             // for each direction of current Spot
             Richting[] directions = currentSpot.getTerrain().getMogelijkeRichtingen();
-
             for (Richting direction : directions) {
 
                 //Look the current terrain
-                Terrein currentTerrain = kaart.kijk(currentSpot.getTerrain(), direction);
-                Spot tempSpot = new Spot(currentTerrain, end);
+                Terrein neighbourTerrain = kaart.kijk(currentSpot.getTerrain(), direction);
+                Spot neighbourSpot = new Spot(neighbourTerrain, end);
 
-                if (!closedSet.contains(tempSpot)) {
-                    double HScore = tempSpot.getCoordinate().afstandTot(end);
-                    double FScore = tempSpot.getG() + HScore;
-
-                    if (!openSet.contains(tempSpot)) {
-                        openSet.add(tempSpot);
-                    }
-
-                    //Assign new F score
-                    tempSpot.setPrevious(currentSpot);
+                if (closedSet.contains(neighbourSpot)) {
+                    continue;
                 }
 
-            }
+                double tentative_gScore = neighbourSpot.getG() + currentSpot.getCoordinate().afstandTot(neighbourSpot.getCoordinate());
 
+                if (!openSet.contains(neighbourSpot)) {
+                    openSet.add(neighbourSpot);
+                } else if (tentative_gScore >= neighbourSpot.getG()) {
+                    continue;
+                }
+
+                //Assign new F score
+                neighbourSpot.setPrevious(currentSpot);
+                neighbourSpot.setG(tentative_gScore);
+                neighbourSpot.setF(neighbourSpot.getG() + neighbourSpot.getCoordinate().afstandTot(end));
+            }
         }//End while
 
         //Creating a path, convert the arraylist to a array
