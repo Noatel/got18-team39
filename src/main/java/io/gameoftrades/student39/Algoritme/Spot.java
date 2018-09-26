@@ -23,7 +23,7 @@ public class Spot {
         this.terrain = terrain;
 
 
-        //If it got a previous add with current
+        // For each node, the cost of getting from the start node to that node.
         if (previous != null) {
             this.g = previous.getG() + terrain.getTerreinType().getBewegingspunten();
         } else {
@@ -31,7 +31,7 @@ public class Spot {
         }
 
         this.h = this.coordinate.afstandTot(end);
-        this.f = this.getG() + this.getCoordinate().afstandTot(end);
+        this.f = this.g + this.h;
     }
 
     public void setPrevious(Spot previous) {
@@ -51,7 +51,6 @@ public class Spot {
     }
 
     public double getF() {
-
         return f;
     }
 
