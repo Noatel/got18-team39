@@ -42,12 +42,6 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
 
         //clear the open and close set
-
-        //Testing
-        Testing.testingMap(kaart);
-        //Remove testing
-
-
         setFirstSpot();
 
 
