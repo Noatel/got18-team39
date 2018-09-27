@@ -18,30 +18,29 @@ import java.util.List;
  *
  * @author Shane Partoredjo
  */
-public class StedenAlgoritme implements StedenTourAlgoritme, Debuggable{
+public class StedenAlgoritme implements StedenTourAlgoritme, Debuggable {
 
     private Debugger debug = new DummyDebugger();
-    
-    
+
     @Override
     public void setDebugger(Debugger debugger) {
         this.debug = debugger;
     }
-    
-    public List<Stad> bereken(Kaart kaart, List<Stad> steden){
+
+    public List<Stad> bereken(Kaart kaart, List<Stad> steden) {
         return null;
     }
-    
+
     //Function for calculating fastest time going between cities
-    public StedenTour snelsteTijd(Kaart kaart, List<Stad> steden){
+    public StedenTour snelsteTijd(Kaart kaart, List<Stad> steden) {
         //Adding all cities to the list
         List<Stad> stad = new ArrayList<>();
         stad.addAll(steden);
-           
+
         //Returning null for now, not done yet
         return null;
     }
-    
+
     @Override
     public String toString() {
         return "Snelste tour ";

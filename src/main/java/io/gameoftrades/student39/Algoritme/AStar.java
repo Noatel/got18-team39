@@ -164,5 +164,5 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         return "A* ";
     }
     //testing github connection
-
+    //hello world!
 }
