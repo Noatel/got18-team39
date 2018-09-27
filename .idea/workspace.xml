@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0d7c659a-94a4-4a92-bf17-a82a4b42bc55" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java" afterPath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Testing.java" afterPath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Testing.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/PadImpl.java" afterPath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/PadImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java" afterPath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,14 +25,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AStar.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AStar.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+            <state relative-caret-position="108">
+              <caret line="169" column="0" lean-forward="false" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WereldLaderImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2594">
+              <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="brede-kaart.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/brede-kaart.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -56,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
+      <file leaf-file-name="Testing.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Testing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9225">
-              <caret line="652" column="0" lean-forward="false" selection-start-line="652" selection-start-column="0" selection-end-line="652" selection-end-column="0" />
+            <state relative-caret-position="207">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -91,12 +114,10 @@
       <file leaf-file-name="PadImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/PadImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="140">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#442#443#0" expanded="true" />
-                <element signature="e#477#478#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,16 +131,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Richting.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/kaart/Richting.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -201,12 +212,12 @@
         <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Dijkstra.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/HandelaarImpl.java" />
         <option value="$PROJECT_DIR$/src/test/resources/kaarten/voorbeeld-kaart.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Testing.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/PadImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Spot.java" />
         <option value="$PROJECT_DIR$/src/test/java/io/gameoftrades/ui/StudentUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/PadImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Testing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java" />
       </list>
     </option>
   </component>
@@ -824,7 +835,7 @@
       <workItem from="1537281307978" duration="4093000" />
       <workItem from="1537515207707" duration="21745000" />
       <workItem from="1537806431488" duration="30916000" />
-      <workItem from="1537969023260" duration="5486000" />
+      <workItem from="1537969023260" duration="7345000" />
     </task>
     <servers />
   </component>
@@ -861,7 +872,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230218000" />
+    <option name="totallyTimeSpent" value="232077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="964" extended-state="0" />
@@ -921,13 +932,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/brede-kaart.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/verkeerd-gebied.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1175,22 +1179,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Testing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/gameoftrades/gameoftrades-library/0.5.0/gameoftrades-library-0.5.0.jar!/io/gameoftrades/model/kaart/Pad.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1219,18 +1207,6 @@
         <state relative-caret-position="9225">
           <caret line="652" column="0" lean-forward="false" selection-start-line="652" selection-start-column="0" selection-end-line="652" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/PadImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#442#443#0" expanded="true" />
-            <element signature="e#477#478#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1282,11 +1258,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="187" column="0" lean-forward="false" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+        <state relative-caret-position="108">
+          <caret line="169" column="0" lean-forward="false" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/PadImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/kaarten/testcases/brede-kaart.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2594">
+          <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

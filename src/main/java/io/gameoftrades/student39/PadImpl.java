@@ -29,30 +29,30 @@ public class PadImpl implements Pad {
 
     @Override
     public PadImpl omgekeerd() {
-        //Reverse path
         //http://www.java2s.com/Tutorial/Java/0140__Collections/Reversestheorderofthegivenobjectarray.htm
 
-        int i = 0;
-        int j = this.moves.length - 1;
-
-
-        Richting tmp;
-        while (j > i) {
-            tmp = this.moves[j];
-            this.moves[j] = this.moves[i];
-            this.moves[i] = tmp;
-            j--;
-            i++;
-        }
-
         ArrayList<Richting> temp = new ArrayList<>();
-        for(Richting direction : this.moves){
+        for(Richting direction : reversePath()){
             temp.add(direction.omgekeerd());
         }
 
         Richting[] finalPath = temp.toArray(new Richting[temp.size()]);
 
         return new PadImpl(finalPath);
+    }
+
+    public Richting[] reversePath(){
+        int i = 0;
+        int j = this.moves.length - 1;
+        Richting tmp;
+
+        while (j > i) {
+            tmp = this.moves[j];
+            this.moves[j] = this.moves[i];
+            this.moves[i] = tmp;
+            j--; i++;
+        }
+        return this.moves;
     }
 
     @Override

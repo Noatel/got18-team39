@@ -167,7 +167,6 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         // if neighbor not in openSet	// Discover a new node
         if (!openSet.contains(neighbour)) {
             openSet.add(neighbour);
-            // else if tentative_gScore >= gScore[neighbor]
         }
 
         setNeighbour(currentSpot, neighbour);

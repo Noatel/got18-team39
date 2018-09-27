@@ -10,23 +10,15 @@ public class Testing {
     public static void testingMap(Kaart kaart) {
         Scanner scanner = new Scanner(kaart.toString());
         System.out.println(kaart.toString());
-        //check each line in scanner
         int x = 0;
         int y = 0;
 
-        int test = 1;
-        try {
-            while (scanner.hasNextLine()) {
-                String value = scanner.nextLine();
-                value = value.replaceAll("\\s+", "");
-
-                testPrintWithCitiesAndSea(value, x, y);
-
-                x = 0;
-                y++;
-            }
-        } catch (java.util.InputMismatchException e) {
-            System.out.println(e);
+        while (scanner.hasNextLine()) {
+            String value = scanner.nextLine();
+            value = value.replaceAll("\\s+", "");
+            testPrintWithCitiesAndSea(value, x, y);
+            x = 0;
+            y++;
         }
     }
 
@@ -73,7 +65,7 @@ public class Testing {
         System.out.println();
         System.out.println("=================");
         for (Spot spot : spots) {
-            System.out.println(i+". " + spot.toString());
+            System.out.println(i + ". " + spot.toString());
             i++;
         }
         System.out.println("=================");
