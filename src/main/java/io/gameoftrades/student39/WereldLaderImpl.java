@@ -32,7 +32,6 @@ public class WereldLaderImpl implements WereldLader {
         //
         // Kijk in src/test/resources voor voorbeeld kaarten.
         //
-        // TODO Laad de wereld!
         //
 
 
