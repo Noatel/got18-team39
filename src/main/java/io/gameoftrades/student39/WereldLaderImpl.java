@@ -21,6 +21,7 @@ public class WereldLaderImpl implements WereldLader {
     private ArrayList<Stad> cities = new ArrayList<Stad>();
     private ArrayList<Handel> trades = new ArrayList<Handel>();
     private ArrayList<Terrein> terrains = new ArrayList<Terrein>();
+    private String value = "";
 
 
     @Override
@@ -39,11 +40,10 @@ public class WereldLaderImpl implements WereldLader {
 
         //initialize scanner and load the file
         Scanner scanner = new Scanner(this.getClass().getResourceAsStream(resource));
-        String value = scanner.nextLine();
+        value = scanner.nextLine();
         //check each line in scanner
         while (scanner.hasNextLine()) {
-            value = value.replaceAll("\\s+", "");
-            scanWorld(i, value, scanner);
+            scanWorld(i, scanner);
 
             i++;
             //if the scanner has a next line, go to the next line
@@ -61,11 +61,13 @@ public class WereldLaderImpl implements WereldLader {
 
         //Create the world with the variables
         Wereld world = new Wereld(map, cities, markets);
-        
+
         return world;
     }
 
-    public void scanWorld(int i, String value, Scanner scanner) {
+    public void scanWorld(int i, Scanner scanner) {
+        value = value.replaceAll("\\s+", "");
+
         //Remove all the white spaces
 
 

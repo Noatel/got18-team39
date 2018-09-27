@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d7c659a-94a4-4a92-bf17-a82a4b42bc55" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java" afterPath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Testing.java" afterPath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Testing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/PadImpl.java" afterPath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/PadImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java" afterPath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,8 +37,8 @@
       <file leaf-file-name="WereldLaderImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2594">
-              <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+            <state relative-caret-position="399">
+              <caret line="67" column="32" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -835,7 +832,7 @@
       <workItem from="1537281307978" duration="4093000" />
       <workItem from="1537515207707" duration="21745000" />
       <workItem from="1537806431488" duration="30916000" />
-      <workItem from="1537969023260" duration="7345000" />
+      <workItem from="1537969023260" duration="7809000" />
     </task>
     <servers />
   </component>
@@ -872,7 +869,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232077000" />
+    <option name="totallyTimeSpent" value="232541000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="964" extended-state="0" />
@@ -1294,8 +1291,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2594">
-          <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+        <state relative-caret-position="399">
+          <caret line="67" column="32" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
           <folding />
         </state>
       </provider>
