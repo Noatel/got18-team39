@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d7c659a-94a4-4a92-bf17-a82a4b42bc55" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java" afterPath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,13 +25,13 @@
       <file leaf-file-name="AStar.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+            <state relative-caret-position="224">
+              <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
               <folding>
                 <element signature="e#856#857#0" expanded="true" />
                 <element signature="e#893#894#0" expanded="true" />
-                <marker date="1538130794000" expanded="false" signature="5486:5497" ph=" { " />
-                <marker date="1538130794000" expanded="false" signature="5510:5516" ph=" }" />
+                <marker date="1538130830000" expanded="false" signature="5485:5496" ph=" { " />
+                <marker date="1538130830000" expanded="false" signature="5509:5515" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -813,7 +812,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="240453000" />
+    <option name="totallyTimeSpent" value="240490000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="962" extended-state="6" />
@@ -1245,13 +1244,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+        <state relative-caret-position="224">
+          <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
           <folding>
             <element signature="e#856#857#0" expanded="true" />
             <element signature="e#893#894#0" expanded="true" />
-            <marker date="1538130794000" expanded="false" signature="5486:5497" ph=" { " />
-            <marker date="1538130794000" expanded="false" signature="5510:5516" ph=" }" />
+            <marker date="1538130830000" expanded="false" signature="5485:5496" ph=" { " />
+            <marker date="1538130830000" expanded="false" signature="5509:5515" ph=" }" />
           </folding>
         </state>
       </provider>

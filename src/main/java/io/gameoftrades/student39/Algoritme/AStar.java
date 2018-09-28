@@ -98,7 +98,6 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
             if (currentCost <= checkSpot.getF() && currentCost != 0.00)
                 continue;
 
-
             // Set the lowest and it's cost
             // and override the currentSpot with the lowest f Score Spot
             currentSpot = checkSpot;
