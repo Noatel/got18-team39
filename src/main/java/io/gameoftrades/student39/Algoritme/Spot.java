@@ -52,10 +52,6 @@ public class Spot {
 
     }
 
-    public void setPrevious(Spot previous) {
-        this.previous = previous;
-    }
-
     public Spot getPrevious() {
         return this.previous;
     }
@@ -72,10 +68,6 @@ public class Spot {
         return f;
     }
 
-    public void setF(double f) {
-        this.f = f;
-    }
-
     public double getG() {
         return g;
     }
@@ -84,29 +76,11 @@ public class Spot {
         this.g = g;
     }
 
-    public void setCoordinate(Coordinaat coordinate) {
-        this.coordinate = coordinate;
-    }
-
-    public void setTerrain(Terrein terrain) {
-        this.terrain = terrain;
-    }
-
-    public double getH() {
-        return h;
-    }
-
-    public void setH(double h) {
-        this.h = h;
-    }
-
 
     @Override
     public String toString() {
         return "[" + this.coordinate.getX() + ", " + this.coordinate.getY() + "]";
     }
-
-
     //https://stackoverflow.com/questions/45616794/arraylist-contains-method-not-work-as-i-would-except
 
     //Because the arraylist, contains make use of the equals function we need to edit it
