@@ -40,21 +40,20 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         this.startCoordinate = start;
         this.endCoordinate = end;
 
-
         //clear the open and close set
         setFirstSpot();
-
 
         //while openSet is not empty
         while (openSet.size() != 0) {
             calculateBestPath();
         }//End while
 
+
         //Probaly never comes here
         return getPath();
     }
 
-    public void calculateBestPath() {
+    private void calculateBestPath() {
         //Assign the size of the openSet
         Spot currentSpot = getLowestSpot();
 
@@ -68,13 +67,14 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
         //for each neighbor of current
         Richting[] directions = currentSpot.getTerrain().getMogelijkeRichtingen();
+
         for (Richting direction : directions) {
             checkDirections(direction, currentSpot);
         }
 
     }
 
-    public Pad getPath() {
+    private Pad getPath() {
         //Creating a path, convert the arraylist to a array
         Richting[] path = route.toArray(new Richting[route.size()]);
         PadImpl reversePath = new PadImpl(path);
@@ -86,33 +86,31 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         return finalPath;
     }
 
-    public Spot getLowestSpot() {
-        int openSetSize = openSet.size();
-
-        //Assign the F Cost that we
-        double cost = 0.00;
+    private Spot getLowestSpot() {
 
         //Assign the current spot so we can later override it
+        //And the F Score so we can grab the lowest value
         Spot currentSpot = null;
+        double currentCost = 0.00;
 
-        for (int i = 0; i < openSetSize; i++) {
-
+        for(Spot checkSpot : openSet) {
             //If the current cost is heiger than 0 and the openSetSpot is lower F Score is lower or equal then the previous cost
-            if (cost > 0.00 && cost <= openSet.get(i).getF()) {
+            System.out.println(checkSpot.getF() +" - " + currentCost);
+            if (currentCost <= checkSpot.getF() && currentCost != 0.00)
                 continue;
-            }
+
 
             // Set the lowest and it's cost
             // and override the currentSpot with the lowest f Score Spot
-            currentSpot = openSet.get(i);
-            cost = currentSpot.getF();
+            currentSpot = checkSpot;
+            currentCost = currentSpot.getF();
         }
 
 
         return currentSpot;
     }
 
-    public boolean checkEndLocation(Spot currentSpot) {
+    private boolean checkEndLocation(Spot currentSpot) {
         Coordinaat currentCoordinate = currentSpot.getCoordinate();
 
         //Define the end spot
@@ -134,7 +132,8 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         return false;
     }
 
-    public Spot getPreviousSpot(Spot currentSpot) {
+    private Spot getPreviousSpot(Spot currentSpot) {
+
         Coordinaat lastSpot = currentSpot.getTerrain().getCoordinaat();
         Coordinaat lastPreviousSpot = currentSpot.getPrevious().getTerrain().getCoordinaat();
 
@@ -150,37 +149,21 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
     private void checkDirections(Richting direction, Spot currentSpot) {
         //Look the current terrain
         Terrein neighbourTerrain = kaart.kijk(currentSpot.getTerrain(), direction);
-        Spot neighbour = new Spot(neighbourTerrain, endCoordinate);
+        Spot neighbour = new Spot(neighbourTerrain, endCoordinate, currentSpot);
 
         //if neighbor in closedSet
-        if (closedSet.contains(neighbour)) {
-            return;
-        }
-
-
-        // if neighbor not in openSet	// Discover a new node
-        if (!openSet.contains(neighbour)) {
-            openSet.add(neighbour);
-        }
-
-        setNeighbour(currentSpot, neighbour);
-    }
-
-    public void setNeighbour(Spot currentSpot, Spot neighbour) {
+        if (closedSet.contains(neighbour))
+            return;// Ignore the neighbor which is already evaluated.
 
         // The distance from start to a neighbor
-        // tentative_gScore := gScore[current] + dist_between(current, neighbor)
-        double tentative_gScore = neighbour.getG() + currentSpot.getCoordinate().afstandTot(neighbour.getCoordinate());
+        double tentative_gScore = currentSpot.getG() + currentSpot.getCoordinate().afstandTot(neighbour.getCoordinate());
 
-        if (tentative_gScore >= neighbour.getG()) {
-            return;
+        // if neighbor not in openSet
+        if (!openSet.contains(neighbour)) {// Discover a new node
+            openSet.add(neighbour);
         }
-
-        // This path is the best until now. Record it!
-        neighbour.setPrevious(currentSpot);
-        neighbour.setG(tentative_gScore);
-        neighbour.setF(neighbour.getG() + neighbour.getCoordinate().afstandTot(endCoordinate));
     }
+
 
     private void reset() {
         this.openSet.clear();
@@ -197,8 +180,6 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         // The cost of going from start to start is zero.
         startSpot.setG(0);
         // For the first node, that value is completely heuristic.
-        startSpot.setF(startSpot.getG() + startSpot.getCoordinate().afstandTot(endCoordinate));
-
     }
 
     @Override

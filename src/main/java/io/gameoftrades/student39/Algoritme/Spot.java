@@ -22,6 +22,22 @@ public class Spot {
         this.coordinate = terrain.getCoordinaat();
         this.terrain = terrain;
 
+        // For each node, the cost of getting from the start node to that node.
+        if (previous != null) {
+            this.g = previous.getG() + terrain.getTerreinType().getBewegingspunten();
+        } else {
+            this.g = terrain.getTerreinType().getBewegingspunten();
+        }
+
+        this.h = coordinate.afstandTot(end);
+        this.f = this.g + this.h;
+    }
+
+    //For the previous spot
+    public Spot(Terrein terrain, Coordinaat end, Spot previous) {
+        //Get the coordinate from terrain
+        this.coordinate = terrain.getCoordinaat();
+        this.terrain = terrain;
 
         // For each node, the cost of getting from the start node to that node.
         if (previous != null) {
@@ -30,8 +46,10 @@ public class Spot {
             this.g = terrain.getTerreinType().getBewegingspunten();
         }
 
-        this.h = this.coordinate.afstandTot(end);
+        this.h = coordinate.afstandTot(end);
         this.f = this.g + this.h;
+        this.previous = previous;
+
     }
 
     public void setPrevious(Spot previous) {
