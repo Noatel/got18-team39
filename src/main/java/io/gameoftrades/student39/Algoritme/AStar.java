@@ -181,5 +181,6 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
     public String toString() {
         return "A* ";
     }
-
+    //testing github connection
+    //hello world!
 }
