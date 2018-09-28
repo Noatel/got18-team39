@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d7c659a-94a4-4a92-bf17-a82a4b42bc55" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java" afterPath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Spot.java" afterPath="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Spot.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,15 +26,13 @@
       <file leaf-file-name="AStar.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+            <state relative-caret-position="194">
+              <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding>
-                <element signature="method#AStar#0;class#AStar#0" expanded="false" />
-                <element signature="e#2449#2502#0" expanded="false" />
-                <element signature="e#2982#3013#0" expanded="false" />
-                <element signature="e#3575#3644#0" expanded="false" />
-                <element signature="method#getPreviousSpot#0;class#AStar#0" expanded="false" />
-                <element signature="method#reset#0;class#AStar#0" expanded="false" />
+                <element signature="e#856#857#0" expanded="true" />
+                <element signature="e#893#894#0" expanded="true" />
+                <marker date="1538130794000" expanded="false" signature="5486:5497" ph=" { " />
+                <marker date="1538130794000" expanded="false" signature="5510:5516" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -47,8 +45,7 @@
               <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding>
                 <element signature="method#Spot#0;class#Spot#0" expanded="false" />
-                <element signature="method#Spot#1;class#Spot#0" expanded="false" />
-                <element signature="method#equals#0;class#Spot#0" expanded="false" />
+                <marker date="1538130771000" expanded="false" signature="2356:2524" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -61,6 +58,7 @@
               <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1538130771000" expanded="true" signature="1304:1311" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -159,8 +157,8 @@
         <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Testing.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/HandelaarImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/WereldLaderImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/Spot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java" />
       </list>
     </option>
   </component>
@@ -815,7 +813,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="240434000" />
+    <option name="totallyTimeSpent" value="240453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="962" extended-state="6" />
@@ -893,7 +891,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="26" column="50" lean-forward="true" selection-start-line="25" selection-start-column="32" selection-end-line="26" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1109,7 +1106,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1117,7 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
           <caret line="68" column="29" lean-forward="false" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1215,7 +1210,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1233,8 +1227,7 @@
           <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding>
             <element signature="method#Spot#0;class#Spot#0" expanded="false" />
-            <element signature="method#Spot#1;class#Spot#0" expanded="false" />
-            <element signature="method#equals#0;class#Spot#0" expanded="false" />
+            <marker date="1538130771000" expanded="false" signature="2356:2524" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1245,21 +1238,20 @@
           <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1538130771000" expanded="true" signature="1304:1311" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/gameoftrades/student39/Algoritme/AStar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+        <state relative-caret-position="194">
+          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding>
-            <element signature="method#AStar#0;class#AStar#0" expanded="false" />
-            <element signature="e#2449#2502#0" expanded="false" />
-            <element signature="e#2982#3013#0" expanded="false" />
-            <element signature="e#3575#3644#0" expanded="false" />
-            <element signature="method#getPreviousSpot#0;class#AStar#0" expanded="false" />
-            <element signature="method#reset#0;class#AStar#0" expanded="false" />
+            <element signature="e#856#857#0" expanded="true" />
+            <element signature="e#893#894#0" expanded="true" />
+            <marker date="1538130794000" expanded="false" signature="5486:5497" ph=" { " />
+            <marker date="1538130794000" expanded="false" signature="5510:5516" ph=" }" />
           </folding>
         </state>
       </provider>

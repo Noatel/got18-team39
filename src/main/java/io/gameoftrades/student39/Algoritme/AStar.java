@@ -95,7 +95,6 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
         for(Spot checkSpot : openSet) {
             //If the current cost is heiger than 0 and the openSetSpot is lower F Score is lower or equal then the previous cost
-            System.out.println(checkSpot.getF() +" - " + currentCost);
             if (currentCost <= checkSpot.getF() && currentCost != 0.00)
                 continue;
 
