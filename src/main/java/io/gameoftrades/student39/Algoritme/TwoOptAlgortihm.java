@@ -20,42 +20,42 @@ import java.util.List;
 public class TwoOptAlgortihm implements StedenTourAlgoritme, Debuggable {
 
     private Debugger debug = new DummyDebugger();
+    private ArrayList<Stad> new_route = new ArrayList<>();
+
     private Kaart map;
 
     public List<Stad> bereken(Kaart worldMap, List<Stad> allCities) {
         ArrayList<Stad> cities = new ArrayList<>(allCities);
-        ArrayList<Stad> newTour;
 
         this.map = worldMap;
+
         double best_distance = calculateTotalDistance(cities);
-        double new_distance;
-        boolean check = true;
-        int size = cities.size();
 
+        for (int i = 1; i < cities.size() - 1; i++) {
+            for (int k = i + 1; k < cities.size(); k++) {
+                //Swap the cities
+                new_route = swap(cities, i, k);
 
-        //repeat until no best path found
-        while (check) {
-            check = true;
+                //Calculate the distance with the new tour
+                double new_distance = calculateTotalDistance(new_route);
 
-            for (int i = 1; i < size; i++) {
-                for (int j = i; j < size - 1; j++) {
-                    //new_route = 2optSwap(existing_route, i, k)
-                    newTour = swap(cities, i, j);
+                //Check if the new distance is better
 
-                    //new_distance = calculateTotalDistance(new_route)
-                    new_distance = calculateTotalDistance(newTour);
+                if (new_distance < best_distance) {
+                    best_distance = new_distance;
+                    cities = new_route;
 
-                    if (new_distance < best_distance) {
-                        cities = newTour;
-                        best_distance = calculateTotalDistance(cities);
-                        debug.debugSteden(map, cities);
-
-                        check = false;
-                    }
+                    debug.debugSteden(map, new_route);
                 }
             }
         }
-        debug.debugSteden(map, cities);
+
+        debug.debugSteden(map, new_route);
+
+        for (Stad city : cities) {
+            System.out.println(city.getNaam());
+        }
+
         return cities;
     }
 
@@ -65,7 +65,7 @@ public class TwoOptAlgortihm implements StedenTourAlgoritme, Debuggable {
         AStar algorithm = new AStar();
 
         //Get the previous City
-        Stad previousCity = cities.get(cities.size() - 1);
+        Stad previousCity = cities.get(0);
 
         //Loop through all the cities that we get the distnace
         for (Stad city : cities) {
@@ -83,30 +83,30 @@ public class TwoOptAlgortihm implements StedenTourAlgoritme, Debuggable {
     }
 
 
-    private static ArrayList<Stad> swap(ArrayList<Stad> cities, int i, int j) {
+    private ArrayList<Stad> swap(ArrayList<Stad> cities, int i, int k) {
         //Initilize the arraylist
-        ArrayList<Stad> newTour = new ArrayList<>();
+        new_route = new ArrayList<>();
 
         //  1. take route[0] to route[i-1] and add them in order to new_route
         int size = cities.size();
         for (int c = 0; c <= i - 1; c++) {
-            newTour.add(cities.get(c));
+            new_route.add(cities.get(c));
         }
 
         //  2. take route[i] to route[k] and add them in reverse order to new_route
         int dec = 0;
-        for (int c = i; c <= j; c++) {
-            newTour.add(cities.get(j - dec));
+        for (int c = i; c <= k; c++) {
+            new_route.add(cities.get(k - dec));
             dec++;
         }
 
         //3. take route[k+1] to end and add them in order to new_route
-        for (int c = j + 1; c < size; c++) {
-            newTour.add(cities.get(c));
+        for (int c = k + 1; c < size; c++) {
+            new_route.add(cities.get(c));
         }
 
         // return new_route;
-        return newTour;
+        return new_route;
     }
 
     @Override

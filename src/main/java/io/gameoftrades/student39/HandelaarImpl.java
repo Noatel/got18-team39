@@ -8,6 +8,7 @@ import io.gameoftrades.model.lader.WereldLader;
 import io.gameoftrades.student39.Algoritme.AStar;
 import io.gameoftrades.student39.Algoritme.StedenTourAlgorithm;
 import io.gameoftrades.student39.Algoritme.TwoOptAlgortihm;
+import io.gameoftrades.student39.Algoritme.StedenTourAlgorithm;
 
 /**
  * Welkom bij Game of Trades!
@@ -34,13 +35,9 @@ public class HandelaarImpl implements Handelaar {
      * Opdracht 2
      */
     @Override
-    public SnelstePadAlgoritme nieuwSnelstePadAlgoritme()  {
-
+    public SnelstePadAlgoritme nieuwSnelstePadAlgoritme() {
         //Load in the algorithm
-        AStar astar = new AStar();
-
-        return astar;
-        
+        return new AStar();
     }
 
     /**
@@ -51,8 +48,9 @@ public class HandelaarImpl implements Handelaar {
 
         //Load in the algorithm
 
-        return new TwoOptAlgortihm();
 //        return new StedenTourAlgorithm();
+        return new TwoOptAlgortihm();
+
 
     }
 
