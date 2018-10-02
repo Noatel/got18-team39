@@ -1,17 +1,13 @@
 package io.gameoftrades.student39;
 
 import io.gameoftrades.model.Handelaar;
-import io.gameoftrades.model.Wereld;
 import io.gameoftrades.model.algoritme.HandelsplanAlgoritme;
 import io.gameoftrades.model.algoritme.SnelstePadAlgoritme;
 import io.gameoftrades.model.algoritme.StedenTourAlgoritme;
-import io.gameoftrades.model.kaart.Coordinaat;
-import io.gameoftrades.model.kaart.Kaart;
-import io.gameoftrades.model.kaart.Pad;
-import io.gameoftrades.model.kaart.Stad;
 import io.gameoftrades.model.lader.WereldLader;
 import io.gameoftrades.student39.Algoritme.AStar;
-import io.gameoftrades.student39.Algoritme.StedenAlgoritme;
+import io.gameoftrades.student39.Algoritme.StedenTourAlgorithm;
+import io.gameoftrades.student39.Algoritme.TwoOptAlgortihm;
 
 /**
  * Welkom bij Game of Trades!
@@ -54,7 +50,9 @@ public class HandelaarImpl implements Handelaar {
     public StedenTourAlgoritme nieuwStedenTourAlgoritme() {
 
         //Load in the algorithm
-        return new StedenAlgoritme();
+
+        return new TwoOptAlgortihm();
+//        return new StedenTourAlgorithm();
 
     }
 

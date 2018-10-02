@@ -1,3 +1,4 @@
+
 package io.gameoftrades.student39.Algoritme;
 
 import io.gameoftrades.debug.Debuggable;
@@ -8,9 +9,6 @@ import io.gameoftrades.model.kaart.*;
 import io.gameoftrades.student39.PadImpl;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Scanner;
 
 public class AStar implements SnelstePadAlgoritme, Debuggable {
 
@@ -18,7 +16,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
     private ArrayList<Spot> openSet;
     private ArrayList<Spot> closedSet;
     private ArrayList<Richting> route = new ArrayList<>();
-    private Kaart kaart = null;
+    private Kaart map = null;
     private Coordinaat startCoordinate = null;
     private Coordinaat endCoordinate = null;
 
@@ -30,13 +28,13 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
     public AStar() {
     }
 
-    public Pad bereken(Kaart kaart, Coordinaat start, Coordinaat end) {
+    public Pad bereken(Kaart map, Coordinaat start, Coordinaat end) {
         closedSet = new ArrayList<>();
         openSet = new ArrayList<>();
 
         this.reset();
 
-        this.kaart = kaart;
+        this.map = map;
         this.startCoordinate = start;
         this.endCoordinate = end;
 
@@ -81,7 +79,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
         //Reverse the array
         Pad finalPath = reversePath.omgekeerd();
-        debug.debugPad(kaart, startCoordinate, finalPath);
+        debug.debugPad(map, startCoordinate, finalPath);
 
         return finalPath;
     }
@@ -112,7 +110,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
         Coordinaat currentCoordinate = currentSpot.getCoordinate();
 
         //Define the end spot
-        Terrein endTerrain = kaart.getTerreinOp(endCoordinate);
+        Terrein endTerrain = map.getTerreinOp(endCoordinate);
         Spot endSpot = new Spot(endTerrain, endCoordinate);
 
         if (currentCoordinate.equals(endSpot.getCoordinate())) {
@@ -146,7 +144,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
     private void checkDirections(Richting direction, Spot currentSpot) {
         //Look the current terrain
-        Terrein neighbourTerrain = kaart.kijk(currentSpot.getTerrain(), direction);
+        Terrein neighbourTerrain = map.kijk(currentSpot.getTerrain(), direction);
         Spot neighbour = new Spot(neighbourTerrain, endCoordinate, currentSpot);
 
         //if neighbor in closedSet
@@ -167,7 +165,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
     }
 
     private void setFirstSpot() {
-        Terrein startTerrain = kaart.getTerreinOp(startCoordinate);
+        Terrein startTerrain = map.getTerreinOp(startCoordinate);
         Spot startSpot = new Spot(startTerrain, endCoordinate);
 
         openSet.add(startSpot);
@@ -181,6 +179,4 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
     public String toString() {
         return "A* ";
     }
-    //testing github connection
-    //hello world!
 }

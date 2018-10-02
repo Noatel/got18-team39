@@ -34,7 +34,6 @@ public class WereldLaderImpl implements WereldLader {
         //
         //
 
-
         int i = 0;
 
         //initialize scanner and load the file
@@ -267,4 +266,5 @@ public class WereldLaderImpl implements WereldLader {
         }
         return isValidInteger;
     }
+
 }
