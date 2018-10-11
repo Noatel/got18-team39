@@ -5,10 +5,7 @@ import io.gameoftrades.model.algoritme.HandelsplanAlgoritme;
 import io.gameoftrades.model.algoritme.SnelstePadAlgoritme;
 import io.gameoftrades.model.algoritme.StedenTourAlgoritme;
 import io.gameoftrades.model.lader.WereldLader;
-import io.gameoftrades.student39.Algoritme.AStar;
-import io.gameoftrades.student39.Algoritme.StedenTourAlgorithm;
-import io.gameoftrades.student39.Algoritme.TwoOptAlgortihm;
-import io.gameoftrades.student39.Algoritme.StedenTourAlgorithm;
+import io.gameoftrades.student39.Algoritme.*;
 
 /**
  * Welkom bij Game of Trades!
@@ -50,8 +47,6 @@ public class HandelaarImpl implements Handelaar {
 
 //        return new StedenTourAlgorithm();
         return new TwoOptAlgortihm();
-
-
     }
 
     /**
@@ -59,6 +54,6 @@ public class HandelaarImpl implements Handelaar {
      */
     @Override
     public HandelsplanAlgoritme nieuwHandelsplanAlgoritme() {
-        return null;
+        return new TradePlan();
     }
 }

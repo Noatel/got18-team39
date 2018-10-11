@@ -29,7 +29,7 @@ public class TwoOptAlgortihm implements StedenTourAlgoritme, Debuggable {
 
         this.map = worldMap;
 
-        double best_distance = calculateTotalDistance(cities);
+        int best_distance = calculateTotalDistance(cities);
 
         for (int i = 1; i < cities.size() - 1; i++) {
             for (int k = i + 1; k < cities.size(); k++) {
@@ -37,7 +37,7 @@ public class TwoOptAlgortihm implements StedenTourAlgoritme, Debuggable {
                 new_route = swap(cities, i, k);
 
                 //Calculate the distance with the new tour
-                double new_distance = calculateTotalDistance(new_route);
+                int new_distance = calculateTotalDistance(new_route);
 
                 //Check if the new distance is better
 
@@ -52,16 +52,23 @@ public class TwoOptAlgortihm implements StedenTourAlgoritme, Debuggable {
 
         debug.debugSteden(map, new_route);
 
-        for (Stad city : cities) {
-            System.out.println(city.getNaam());
-        }
+//        printValues(cities,best_distance);
 
         return cities;
     }
 
-    private double calculateTotalDistance(ArrayList<Stad> cities) {
+    private void printValues(List<Stad> cities, int best_distance) {
+        for (Stad city : cities) {
+            System.out.println(city.getNaam());
+        }
+
+        System.out.println("best Distance = " + best_distance);
+
+    }
+
+    private int calculateTotalDistance(ArrayList<Stad> cities) {
         //Keep track of all the distnace
-        double distance = 0;
+        int distance = 0;
         AStar algorithm = new AStar();
 
         //Get the previous City
