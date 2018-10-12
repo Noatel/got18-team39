@@ -4,6 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import io.gameoftrades.model.markt.Handel;
+import io.gameoftrades.model.markt.Markt;
+import io.gameoftrades.student39.Algoritme.Trade;
+import io.gameoftrades.student39.Algoritme.TradePlan;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,6 +16,9 @@ import io.gameoftrades.model.kaart.Coordinaat;
 import io.gameoftrades.model.kaart.TerreinType;
 import io.gameoftrades.model.lader.WereldLader;
 import io.gameoftrades.model.markt.HandelType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Handige test om de WereldLader implementatie te testen.
@@ -134,6 +141,37 @@ public class WereldLaderImplTest {
         assertEquals(21, wereld.getSteden().size());
         assertEquals(25, wereld.getKaart().getBreedte());
         assertEquals(50, wereld.getKaart().getHoogte());
+    }
+
+
+    //Opdracht 4 testing
+
+    @Test
+    public void createAllCities(){
+        Wereld wereld = lader.laad("/kaarten/westeros-kaart.txt");
+        assertEquals(21,   wereld.getSteden().size());
+    }
+
+
+
+    //Opdracht 4 testing
+    @Test
+    public void createAllMarket(){
+        Wereld wereld = lader.laad("/kaarten/westeros-kaart.txt");
+        Markt market =  wereld.getMarkt();
+
+        assertEquals(44,  market.getHandel().size());
+    }
+
+    @Test
+    public void createAllTrades(){
+        Wereld wereld = lader.laad("/kaarten/westeros-kaart.txt");
+
+        List<Handel> getTrades = wereld.getMarkt().getHandel();
+        TradePlan trade = new TradePlan();
+        List<Trade> sortedTrades = trade.createTrades(getTrades);
+
+        assertEquals(44,  sortedTrades.size());
     }
 
 }

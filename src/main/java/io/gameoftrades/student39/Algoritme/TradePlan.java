@@ -31,7 +31,7 @@ public class TradePlan implements HandelsplanAlgoritme, Debuggable {
     @Override
     public Handelsplan bereken(Wereld wereld, HandelsPositie handelsPositie) {
 
-        Stad currentCity =  wereld.getSteden().get(0);
+        Stad currentCity = wereld.getSteden().get(0);
         this.map = wereld.getKaart();
         this.world = wereld;
         this.navigationActions = new ArrayList<>();
@@ -39,30 +39,16 @@ public class TradePlan implements HandelsplanAlgoritme, Debuggable {
         //Get all the trades
         List<Handel> getTrades = this.world.getMarkt().getHandel();
 
-        //Create the trades and sort it
-        List<Trade> sortedTrades = new ArrayList<>();
-        Trade currentTrade = null;
-
         System.out.println("Start creating trades");
         //Create the offer trades
-        for (Handel trade : getTrades) {
-            if (currentTrade != null) {
-                if (getTrades.contains(trade)) {
-                    currentTrade = new Trade(trade.getStad());
-                    sortedTrades.add(currentTrade);
-                }
-            } else {
-                currentTrade = new Trade(trade.getStad());
-                sortedTrades.add(currentTrade);
-            }
-        }
 
+        List<Trade> sortedTrades = createTrades(getTrades);
 
         int bestPoints = 0;
         for (Trade trade : sortedTrades) {
 
             AStar algorthim = new AStar();
-            Pad path = algorthim.bereken(map,currentCity.getCoordinaat(),trade.getCity().getCoordinaat());
+            Pad path = algorthim.bereken(map, currentCity.getCoordinaat(), trade.getCity().getCoordinaat());
 
             BeweegActie moveAction = new BeweegActie(map, currentCity, trade.getCity(), path);
 
@@ -70,7 +56,7 @@ public class TradePlan implements HandelsplanAlgoritme, Debuggable {
 
 
             navigationActions.add(moveAction);
-            for(Handel market : trade.getAsks()){
+            for (Handel market : trade.getAsks()) {
                 System.out.println(market);
             }
         }
@@ -82,6 +68,25 @@ public class TradePlan implements HandelsplanAlgoritme, Debuggable {
 
 
         return new Handelsplan(this.navigationActions);
+    }
+
+    public List<Trade> createTrades(List<Handel> getTrades) {
+        List<Trade> sortedTrades = new ArrayList<>();
+        //Create the trades and sort it
+        Trade currentTrade = null;
+
+        for (Handel trade : getTrades) {
+            if (currentTrade != null) {
+                if (getTrades.contains(trade)) {
+                    currentTrade = new Trade(trade.getStad());
+                    sortedTrades.add(currentTrade);
+                }
+            } else {
+                currentTrade = new Trade(trade.getStad());
+                sortedTrades.add(currentTrade);
+            }
+        }
+        return sortedTrades;
     }
 
 

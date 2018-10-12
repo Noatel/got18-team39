@@ -38,7 +38,6 @@ public class TwoOptAlgortihm implements StedenTourAlgoritme, Debuggable {
 
                 //Calculate the distance with the new tour
                 int new_distance = calculateTotalDistance(new_route);
-
                 //Check if the new distance is better
 
                 if (new_distance < best_distance) {
@@ -46,10 +45,12 @@ public class TwoOptAlgortihm implements StedenTourAlgoritme, Debuggable {
                     cities = new_route;
 
 
+                    System.out.println("best distance = "+ best_distance);
                     debug.debugSteden(map, new_route);
                 }
             }
         }
+
 
         debug.debugSteden(map, new_route);
 

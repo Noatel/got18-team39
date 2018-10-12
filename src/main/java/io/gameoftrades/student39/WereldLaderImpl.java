@@ -12,7 +12,6 @@ import java.util.*;
 
 public class WereldLaderImpl implements WereldLader {
 
-
     //The world & coordinate
     private int[] coordinate = new int[2];
     private Kaart map;
@@ -20,9 +19,7 @@ public class WereldLaderImpl implements WereldLader {
     //Cities and trade
     private ArrayList<Stad> cities = new ArrayList<Stad>();
     private ArrayList<Handel> trades = new ArrayList<Handel>();
-    private ArrayList<Terrein> terrains = new ArrayList<Terrein>();
     private String value = "";
-
 
     @Override
     public Wereld laad(String resource) {
@@ -31,7 +28,6 @@ public class WereldLaderImpl implements WereldLader {
         // Gebruik this.getClass().getResourceAsStream(resource) om een resource van het classpath te lezen.
         //
         // Kijk in src/test/resources voor voorbeeld kaarten.
-        //
         //
 
         int i = 0;
@@ -63,7 +59,7 @@ public class WereldLaderImpl implements WereldLader {
         return world;
     }
 
-    public void scanWorld(int i, Scanner scanner) {
+    private void scanWorld(int i, Scanner scanner) {
         value = value.replaceAll("\\s+", "");
 
         //Remove all the white spaces
@@ -107,7 +103,7 @@ public class WereldLaderImpl implements WereldLader {
         }
     }
 
-    public void createCity(String cityData) {
+    private void createCity(String cityData) {
         //Create a city
 
         String[] splitCity = cityData.split(",");
@@ -129,7 +125,7 @@ public class WereldLaderImpl implements WereldLader {
     }
 
 
-    public void assignWorld(String value) {
+    private void assignWorld(String value) {
         //Split the data from the scanner and put it in the
         //Int array coords
         String[] splitCoordinates = value.split(",");
@@ -142,7 +138,7 @@ public class WereldLaderImpl implements WereldLader {
         map = new Kaart(coordinate[0], coordinate[1]);
     }
 
-    public void assignTerrain(int i, String value) {
+    private void assignTerrain(int i, String value) {
 
         Integer coordinateY = i - 1;
         Integer coordinateX = 0;
@@ -154,13 +150,12 @@ public class WereldLaderImpl implements WereldLader {
             TerreinType terrainType = TerreinType.fromLetter(c);
             Terrein terrain = new Terrein(map, coordinate, terrainType);
 
-            terrains.add(terrain);
             coordinateX++;
         }
 
     }
 
-    public void assignCities(int amountCities, Scanner scanner) {
+    private void assignCities(int amountCities, Scanner scanner) {
         //For the amount of cities that they are loop through
         for (int j = 0; j < amountCities; j++) {
             String cityData = scanner.nextLine().replaceAll("\\s+", "");
@@ -168,7 +163,7 @@ public class WereldLaderImpl implements WereldLader {
         }
     }
 
-    public void assignMarket(Scanner scanner) {
+    private void assignMarket(Scanner scanner) {
         //Create first a final that only can assign once
 
         String scannerMarkets = scanner.nextLine().replaceAll("\\s+", "");
@@ -184,7 +179,7 @@ public class WereldLaderImpl implements WereldLader {
         }
     }
 
-    public void checkIfCityPosible(Coordinaat cityCoordinate, int[] cityCoordinates) {
+    private void checkIfCityPosible(Coordinaat cityCoordinate, int[] cityCoordinates) {
         //We need to -1 because the map begins at 0,0 instead of 1,1
         if (cityCoordinates[0] == 0 && cityCoordinates[1] == 0) {
             throw new IllegalArgumentException("The city is standing outside the map");
@@ -208,7 +203,7 @@ public class WereldLaderImpl implements WereldLader {
 
     }
 
-    public int[] calculateCoordinates(String[] coordinates) {
+    private int[] calculateCoordinates(String[] coordinates) {
 
         int[] cityCoordinates = new int[2];
 
@@ -227,7 +222,7 @@ public class WereldLaderImpl implements WereldLader {
         return cityCoordinates;
     }
 
-    public void createMarket(String marktData) {
+    private void createMarket(String marktData) {
         String[] splitMarkt = marktData.split(",");
 
         String cityName = splitMarkt[0];
@@ -251,7 +246,7 @@ public class WereldLaderImpl implements WereldLader {
     }
 
     //Check if its a integer
-    public static boolean isInteger(String s) {
+    private static boolean isInteger(String s) {
         //Always false
         boolean isValidInteger = false;
         try {

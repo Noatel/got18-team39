@@ -46,8 +46,6 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
             calculateBestPath();
         }//End while
 
-
-        //Probaly never comes here
         return getPath();
     }
 
@@ -79,6 +77,7 @@ public class AStar implements SnelstePadAlgoritme, Debuggable {
 
         //Reverse the array
         Pad finalPath = reversePath.omgekeerd();
+
         debug.debugPad(map, startCoordinate, finalPath);
 
         return finalPath;
