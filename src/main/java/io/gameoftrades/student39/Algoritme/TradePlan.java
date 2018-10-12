@@ -12,6 +12,7 @@ import io.gameoftrades.model.kaart.Stad;
 import io.gameoftrades.model.markt.Handel;
 import io.gameoftrades.model.markt.Handelsplan;
 import io.gameoftrades.model.markt.actie.Actie;
+import io.gameoftrades.model.markt.actie.BeweegActie;
 import io.gameoftrades.model.markt.actie.HandelsPositie;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class TradePlan implements HandelsplanAlgoritme, Debuggable {
     private Debugger debug = new DummyDebugger();
     private Kaart map = null;
     private Wereld world = null;
+    private ArrayList<Actie> navigationActions = null;
     private ArrayList<Stad> availableCities = new ArrayList<>();
     private List<Stad> allCities = new ArrayList<>();
     List<Actie> actions = new ArrayList<>();
@@ -29,42 +31,57 @@ public class TradePlan implements HandelsplanAlgoritme, Debuggable {
     @Override
     public Handelsplan bereken(Wereld wereld, HandelsPositie handelsPositie) {
 
+        Stad currentCity =  wereld.getSteden().get(0);
         this.map = wereld.getKaart();
         this.world = wereld;
-
-
-        System.out.println(handelsPositie.toString());
-
-
-        allCities = wereld.getSteden();
-        for (Stad city : allCities) {
-            System.out.println(this.calculateDistance(handelsPositie.getStad(), city));
-        }
+        this.navigationActions = new ArrayList<>();
 
         //Get all the trades
         List<Handel> getTrades = this.world.getMarkt().getHandel();
-        List<Handel> sortedTrades = new ArrayList<>();
 
-        System.out.println("Offer");
+        //Create the trades and sort it
+        List<Trade> sortedTrades = new ArrayList<>();
+        Trade currentTrade = null;
+
+        System.out.println("Start creating trades");
+        //Create the offer trades
         for (Handel trade : getTrades) {
-
-            if (sortedTrades.contains(trade)) {
-                Trade newTrade = new Trade(trade.getStad());
-                sortedTrades.add(trade);
+            if (currentTrade != null) {
+                if (getTrades.contains(trade)) {
+                    currentTrade = new Trade(trade.getStad());
+                    sortedTrades.add(currentTrade);
+                }
+            } else {
+                currentTrade = new Trade(trade.getStad());
+                sortedTrades.add(currentTrade);
             }
-
-
         }
 
-        for(Handel trade : sortedTrades){
-            System.out.println(trade.getStad().getNaam());
+
+        int bestPoints = 0;
+        for (Trade trade : sortedTrades) {
+
+            AStar algorthim = new AStar();
+            Pad path = algorthim.bereken(map,currentCity.getCoordinaat(),trade.getCity().getCoordinaat());
+
+            BeweegActie moveAction = new BeweegActie(map, currentCity, trade.getCity(), path);
+
+            currentCity = trade.getCity();
+
+
+            navigationActions.add(moveAction);
+            for(Handel market : trade.getAsks()){
+                System.out.println(market);
+            }
         }
         //Check if the cities are in range
         System.out.println("Aantal stappen: " + handelsPositie.getMaxActie());
         System.out.println("Bezochte steden: " + handelsPositie.getBezochteSteden());
+        System.out.println("Get Trade length: " + getTrades.size());
+        System.out.println("Sorted trade length: " + sortedTrades.size());
 
 
-        return null;
+        return new Handelsplan(this.navigationActions);
     }
 
 

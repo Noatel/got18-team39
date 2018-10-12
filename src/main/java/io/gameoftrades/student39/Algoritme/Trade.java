@@ -19,13 +19,6 @@ public class Trade {
 
     }
 
-    public void addOffer(Handel offer) {
-        offers.add(offer);
-    }
-
-    public void addAsks(Handel ask) {
-        asks.add(ask);
-    }
 
     public Stad getCity() {
         return city;
@@ -38,6 +31,21 @@ public class Trade {
 
     public ArrayList<Handel> getAsks() {
         return asks;
+    }
+
+
+    //https://stackoverflow.com/questions/45616794/arraylist-contains-method-not-work-as-i-would-except
+
+    //Because the arraylist, contains make use of the equals function we need to edit it
+    //So we check if a object is equal to the other spot
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Handel)) {
+            return false;
+        }
+        Handel other = (Handel) o;
+
+        return Objects.equals(other, o);
     }
 
 }

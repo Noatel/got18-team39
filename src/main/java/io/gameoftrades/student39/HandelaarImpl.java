@@ -42,10 +42,7 @@ public class HandelaarImpl implements Handelaar {
      */
     @Override
     public StedenTourAlgoritme nieuwStedenTourAlgoritme() {
-
         //Load in the algorithm
-
-//        return new StedenTourAlgorithm();
         return new TwoOptAlgortihm();
     }
 

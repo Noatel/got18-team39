@@ -21,7 +21,6 @@ public class TwoOptAlgortihm implements StedenTourAlgoritme, Debuggable {
 
     private Debugger debug = new DummyDebugger();
     private ArrayList<Stad> new_route = new ArrayList<>();
-
     private Kaart map;
 
     public List<Stad> bereken(Kaart worldMap, List<Stad> allCities) {
@@ -30,6 +29,7 @@ public class TwoOptAlgortihm implements StedenTourAlgoritme, Debuggable {
         this.map = worldMap;
 
         int best_distance = calculateTotalDistance(cities);
+
 
         for (int i = 1; i < cities.size() - 1; i++) {
             for (int k = i + 1; k < cities.size(); k++) {
@@ -45,6 +45,7 @@ public class TwoOptAlgortihm implements StedenTourAlgoritme, Debuggable {
                     best_distance = new_distance;
                     cities = new_route;
 
+
                     debug.debugSteden(map, new_route);
                 }
             }
@@ -52,18 +53,8 @@ public class TwoOptAlgortihm implements StedenTourAlgoritme, Debuggable {
 
         debug.debugSteden(map, new_route);
 
-//        printValues(cities,best_distance);
 
         return cities;
-    }
-
-    private void printValues(List<Stad> cities, int best_distance) {
-        for (Stad city : cities) {
-            System.out.println(city.getNaam());
-        }
-
-        System.out.println("best Distance = " + best_distance);
-
     }
 
     private int calculateTotalDistance(ArrayList<Stad> cities) {
@@ -107,12 +98,10 @@ public class TwoOptAlgortihm implements StedenTourAlgoritme, Debuggable {
             dec++;
         }
 
-        //3. take route[k+1] to end and add them in order to new_route
+        //  3. take route[k+1] to end and add them in order to new_route
         for (int c = k + 1; c < size; c++) {
             new_route.add(cities.get(c));
         }
-
-        // return new_route;
         return new_route;
     }
 
